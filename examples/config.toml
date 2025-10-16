@@ -1,0 +1,10 @@
+title = "ArkhamCookie's Homepage"
+
+[[bookmarks]]
+link = "https://youtube.com"
+name = "YouTube"
+shortcut = "y"
+
+[[bookmarks]]
+link = "https://discord.com"
+name = "Discord"
