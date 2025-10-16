@@ -85,12 +85,12 @@ link = \"https://github.com\"
 name = \"GitHub\"
 shortcut = \"g\"
 
-[[bookmark]]
+[[bookmarks]]
 link = \"https://youtube.com\"
 name = \"YouTube\"
 shortcut = \"y\"
 
-[[bookmark]]
+[[bookmarks]]
 link = \"https://arkhamcookie.com\"
 name = \"ArkhamCookie\"
 	");
