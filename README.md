@@ -1,6 +1,6 @@
 # RustyHome
 
-RustyHome is a simple startpage configurable in a simple [TOML](https://toml.io/) file.
+RustyHome is a simple startpage configurable with a simple [TOML](https://toml.io/) file.
 
 ## Features
 
