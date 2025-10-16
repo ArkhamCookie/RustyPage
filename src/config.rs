@@ -1,5 +1,9 @@
+use crate::cli::Args;
+
 use std::fs;
 use std::path::PathBuf;
+
+use directories::ProjectDirs;
 
 use serde::Deserialize;
 
@@ -58,7 +62,47 @@ impl ParsedBookmark {
 	}
 }
 
-pub(crate) fn get_config(config_file: PathBuf) -> Config {
+pub(crate) fn get_config(args: &Args) -> Config {
+	if let Some(config_file) = &args.config_file {
+		return get_config_from_file(&config_file);
+	}
+
+	get_config_from_dirs()
+}
+
+fn get_config_from_dirs() -> Config {
+	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustyhome").expect("error couldn't get project directory");
+	let config_dirs = project_dirs.config_dir();
+
+	fs::create_dir_all(&config_dirs).expect("error creating config directories");
+
+	let config_path = &config_dirs.join("config.toml");
+
+	let default_toml = String::from("title = \"RustyPage\"
+
+[[bookmarks]]
+link = \"https://github.com\"
+name = \"GitHub\"
+shortcut = \"g\"
+
+[[bookmark]]
+link = \"https://youtube.com\"
+name = \"YouTube\"
+shortcut = \"y\"
+
+[[bookmark]]
+link = \"https://arkhamcookie.com\"
+name = \"ArkhamCookie\"
+	");
+
+	if !config_path.exists() {
+		fs::write(&config_path, default_toml).expect("error couldn't create default config file");
+	}
+
+	get_config_from_file(&config_path)
+}
+
+fn get_config_from_file(config_file: &PathBuf) -> Config {
 	let toml_string = fs::read_to_string(config_file).expect("Error reading file");
 
 	toml::from_str(&toml_string).expect("Error parsing config file")
