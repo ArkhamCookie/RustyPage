@@ -24,17 +24,5 @@ target/
 .idea/
 .vim
 
-## OpenSSL
-*.pem
-
 ## Outputs
-output/
-profile.html
-openlol.db
-*db-wal
-!frontend/templates/profile.html
-
-
-# Added by cargo
-
-/target
+index.html
