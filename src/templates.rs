@@ -1,5 +1,5 @@
 use crate::config::{Config, ParsedBookmark};
-use crate::themes::catppuccin::{CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE, CATPPUCCIN_MACCHIATO};
+use crate::themes::catppuccin::{CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE, CATPPUCCIN_MACCHIATO, CATPPUCCIN_MOCHA};
 
 use askama::Template;
 
@@ -26,6 +26,9 @@ impl Homepage {
 				},
 				"cattpuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => {
 					&CATPPUCCIN_MACCHIATO
+				},
+				"cattpuccin-mocha" | "cattppuccin_mocha" | "mocha" => {
+					&CATPPUCCIN_MOCHA
 				},
 				"" => "",
 				_ => {
