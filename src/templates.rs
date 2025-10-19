@@ -24,10 +24,10 @@ impl Homepage {
 				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
 					&CATPPUCCIN_FRAPPE
 				},
-				"cattpuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => {
+				"catppuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => {
 					&CATPPUCCIN_MACCHIATO
 				},
-				"cattpuccin-mocha" | "cattppuccin_mocha" | "mocha" => {
+				"catppuccin-mocha" | "catppuccin_mocha" | "mocha" => {
 					&CATPPUCCIN_MOCHA
 				},
 				"" => "",
