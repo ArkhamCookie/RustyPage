@@ -4,7 +4,9 @@ All supported themes for RustyPage in normal css files for ease of reading and e
 
 ## Theme List
 
-- [Catppuccin Frappe](https://catppuccin.com/palette/)
+- [Catppuccin](https://catppuccin.com)
+  - Latte
+  - Frappe
 
 ## Adding a Theme
 

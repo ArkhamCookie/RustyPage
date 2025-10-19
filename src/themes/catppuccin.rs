@@ -1,6 +1,14 @@
 /// Cappuccin Themes
 /// https://catppuccin.com
 
+pub(crate) const CATPPUCCIN_LATTE: &'static str = "<style>
+		:root {
+			--base: #EFF1F5;
+			--text: #4C4F69;
+			--link: #1E66F5;
+		}
+	</style>";
+
 pub(crate) const CATPPUCCIN_FRAPPE: &'static str = "<style>
 		:root {
 			--base: #303446;

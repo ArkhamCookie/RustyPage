@@ -1,5 +1,5 @@
 use crate::config::{Config, ParsedBookmark};
-use crate::themes::catppuccin::CATPPUCCIN_FRAPPE;
+use crate::themes::catppuccin::{CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE};
 
 use askama::Template;
 
@@ -18,6 +18,9 @@ impl Homepage {
 		let converted_bookmarks = ParsedBookmark::convert_all(&config.bookmarks);
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
+				"catppuccin-latte" | "catppuccin_latte" | "latte" => {
+					&CATPPUCCIN_LATTE
+				},
 				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
 					&CATPPUCCIN_FRAPPE
 				},
