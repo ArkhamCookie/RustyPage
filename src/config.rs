@@ -72,7 +72,7 @@ pub(crate) fn get_config(args: &Args) -> Config {
 }
 
 fn get_config_from_dirs() -> Config {
-	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustyhome")
+	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustypage")
 		.expect("error couldn't get project directory");
 	let config_dirs = project_dirs.config_dir();
 
