@@ -16,3 +16,11 @@ pub(crate) const CATPPUCCIN_FRAPPE: &'static str = "<style>
 			--link: #8CAAEE;
 		}
 	</style>";
+
+pub(crate) const CATPPUCCIN_MACCHIATO: &'static str = "<style>
+		:root {
+			--base: #24273A;
+			--text: #CAD3F5;
+			--link: #8ADDF4;
+		}
+	</style>";
