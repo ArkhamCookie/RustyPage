@@ -12,4 +12,5 @@ You can also optionally add a shortcut key that opens a bookmark in a new tab.
 ## Future Features
 
 - Fetch Favicons
+- Folders/Sections?
 - Themes
