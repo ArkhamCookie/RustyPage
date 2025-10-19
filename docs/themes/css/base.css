@@ -1,0 +1,8 @@
+body {
+	background: var(--base);
+	color: var(--text);
+}
+
+a {
+	color: var(--link);
+}
