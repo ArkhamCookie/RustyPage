@@ -71,14 +71,16 @@ pub(crate) fn get_config(args: &Args) -> Config {
 }
 
 fn get_config_from_dirs() -> Config {
-	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustyhome").expect("error couldn't get project directory");
+	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustyhome")
+		.expect("error couldn't get project directory");
 	let config_dirs = project_dirs.config_dir();
 
 	fs::create_dir_all(&config_dirs).expect("error creating config directories");
 
 	let config_path = &config_dirs.join("config.toml");
 
-	let default_toml = String::from("title = \"RustyPage\"
+	let default_toml = String::from(
+		"title = \"RustyPage\"
 
 [[bookmarks]]
 link = \"https://github.com\"
@@ -93,7 +95,8 @@ shortcut = \"y\"
 [[bookmarks]]
 link = \"https://arkhamcookie.com\"
 name = \"ArkhamCookie\"
-	");
+	",
+	);
 
 	if !config_path.exists() {
 		fs::write(&config_path, default_toml).expect("error couldn't create default config file");
