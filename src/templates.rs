@@ -18,7 +18,9 @@ impl Homepage {
 		let converted_bookmarks = ParsedBookmark::convert_all(&config.bookmarks);
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
-				"catppuccin" => &CATPPUCCIN_FRAPPE,
+				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
+					&CATPPUCCIN_FRAPPE
+				}
 				"" => "",
 				_ => {
 					eprintln!("WARNING: Unreconized theme in config file!");
