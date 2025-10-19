@@ -7,7 +7,16 @@ This program using the [directories crate](https://docs.rs/directories/latest/di
 
 ```toml
 title = "RustyPage" # Sets the title in the head (this is what shows on the tab)
+
+theme = "Frappe" # Select the Catppuccin Frappe theme for the color scheme
+
+[[bookmarks]] # Create a bookmark for the page
+link = "https://youtube.com" # Link of the bookmark (Required if creating a bookmark)
+name = "YouTube" # Name of the bookmark (Required if creating bookmark)
+shortcut = "y" # Optional shortcut you can press to open bookmark in new tab
 ```
+
+There are more examples in the [`examples/`](./examples/) directory.
 
 ## Config File Location
 
