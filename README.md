@@ -17,6 +17,6 @@ For a list of themes, go to the [themes docs](/docs/themes/).
 
 ## Future Features
 
-- Fetch Favicons
+- Fetch Favicons?
 - Folders/Sections?
 - More Themes
