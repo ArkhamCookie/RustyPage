@@ -13,10 +13,7 @@ You can also optionally add a shortcut key that opens a bookmark in a new tab.
 
 RustyPage has an optional theme selection.
 
-### Current Themes
-
-- [Catppuccin](https://catppuccin.com)
-  - Frappe
+For a list of themes, go to the [themes docs](/docs/themes/).
 
 ## Future Features
 
