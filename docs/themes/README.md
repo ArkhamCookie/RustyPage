@@ -8,6 +8,7 @@ All supported themes for RustyPage in normal css files for ease of reading and e
   - Latte
   - Frappe
   - Macchiato
+  - Mocha
 
 ## Adding a Theme
 
