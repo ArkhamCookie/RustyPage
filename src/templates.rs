@@ -1,5 +1,5 @@
 use crate::config::{Config, ParsedBookmark};
-use crate::themes::catppuccin::CATPPUCCIN_FRAPPE;
+use crate::themes::catppuccin::{CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE, CATPPUCCIN_MACCHIATO, CATPPUCCIN_MOCHA};
 
 use askama::Template;
 
@@ -18,7 +18,18 @@ impl Homepage {
 		let converted_bookmarks = ParsedBookmark::convert_all(&config.bookmarks);
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
-				"catppuccin" => &CATPPUCCIN_FRAPPE,
+				"catppuccin-latte" | "catppuccin_latte" | "latte" => {
+					&CATPPUCCIN_LATTE
+				},
+				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
+					&CATPPUCCIN_FRAPPE
+				},
+				"catppuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => {
+					&CATPPUCCIN_MACCHIATO
+				},
+				"catppuccin-mocha" | "catppuccin_mocha" | "mocha" => {
+					&CATPPUCCIN_MOCHA
+				},
 				"" => "",
 				_ => {
 					eprintln!("WARNING: Unreconized theme in config file!");
