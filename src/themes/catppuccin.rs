@@ -1,3 +1,6 @@
+/// Cappuccin Theme
+/// https://catppuccin.com
+
 pub(crate) const CATPPUCCIN_FRAPPE: &'static str = "<style>
 		:root {
 			--external-background: #303446;
