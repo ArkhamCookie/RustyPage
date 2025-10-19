@@ -10,6 +10,7 @@ use serde::Deserialize;
 #[derive(Debug, Deserialize)]
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
+	pub(crate) theme: Option<String>,
 	pub(crate) bookmarks: Vec<Bookmark>,
 }
 
