@@ -10,6 +10,7 @@ use clap::Parser;
 mod cli;
 mod config;
 mod templates;
+mod themes;
 
 fn main() {
 	let args = Args::parse();

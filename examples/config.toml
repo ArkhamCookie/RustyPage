@@ -1,5 +1,7 @@
 title = "ArkhamCookie's Homepage"
 
+theme = "catppuccin"
+
 [[bookmarks]]
 link = "https://youtube.com"
 name = "YouTube"
