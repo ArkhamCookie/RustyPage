@@ -20,7 +20,7 @@ impl Homepage {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
 				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
 					&CATPPUCCIN_FRAPPE
-				}
+				},
 				"" => "",
 				_ => {
 					eprintln!("WARNING: Unreconized theme in config file!");
