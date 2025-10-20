@@ -13,7 +13,7 @@ You can also optionally add a shortcut key that opens a bookmark in a new tab.
 
 RustyPage has an optional theme selection.
 
-For a list of themes, go to the [themes docs](/docs/themes/).
+For a list of themes, go to the [themes docs](/docs/styles/themes/).
 
 ## Future Features
 
