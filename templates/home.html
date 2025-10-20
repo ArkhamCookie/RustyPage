@@ -35,24 +35,27 @@
 </head>
 
 <body>
-	{% for bookmark in bookmarks %}
-		<div class="bookmark" id="{{bookmark.id}}">
-			<a href="{{bookmark.link}}">{{bookmark.name}}</a>
-		</div>
 
-		{% if !bookmark.shortcut.is_empty() %}
-			<script>
-				function handleShortcut(event) {
-					if (event.key === "{{bookmark.shortcut}}") {
-						event.preventDefault();
-						window.open("{{bookmark.link}}")
+	<section id=bookmarks-section>
+		{% for bookmark in bookmarks %}
+			<div class="bookmark" id="{{bookmark.id}}">
+				<a href="{{bookmark.link}}">{{bookmark.name}}</a>
+			</div>
+
+			{% if !bookmark.shortcut.is_empty() %}
+				<script>
+					function handleShortcut(event) {
+						if (event.key === "{{bookmark.shortcut}}") {
+							event.preventDefault();
+							window.open("{{bookmark.link}}")
+						}
 					}
-				}
 
-				document.addEventListener("keydown", handleShortcut);
-			</script>
-		{% endif %}
-	{% endfor %}
+					document.addEventListener("keydown", handleShortcut);
+				</script>
+			{% endif %}
+		{% endfor %}
+	</section>
 
 	{% if footer %}
 		<footer>
