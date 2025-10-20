@@ -35,9 +35,11 @@
 </head>
 
 <body>
-	<form id="search-bar">
-		<input id="search-input" placeholder="Search..." autocomplete="off">
-	</form>
+	{% if let Some(search_engine) = search_engine %}
+		<form id="search-bar">
+			<input id="search-input" placeholder="Search..." autocomplete="off">
+		</form>
+	{% endif %}
 
 	<section id=bookmarks-section>
 		{% for bookmark in bookmarks %}
