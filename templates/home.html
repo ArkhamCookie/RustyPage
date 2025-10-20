@@ -47,9 +47,11 @@
 		{% endif %}
 	{% endfor %}
 
-	<footer>
-		<small>Made with <a href="https://github.com/ArkhamCookie/RustyPage">RustyPage</a>.</small>
-	</footer>
+	{% if footer %}
+		<footer>
+			<small>Made with <a href="https://github.com/ArkhamCookie/RustyPage">RustyPage</a>.</small>
+		</footer>
+	{% endif %}
 </body>
 
 </html>
