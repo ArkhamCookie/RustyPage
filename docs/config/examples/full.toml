@@ -1,6 +1,6 @@
 title = "ArkhamCookie's Homepage"
-
 theme = "catppuccin"
+footer = true
 
 [[bookmarks]]
 link = "https://youtube.com"
