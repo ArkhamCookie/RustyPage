@@ -10,6 +10,7 @@ use serde::Deserialize;
 pub(crate) struct Homepage {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: &'static str,
+	pub(crate) footer: bool,
 	pub(crate) bookmarks: Vec<ParsedBookmark>,
 }
 
@@ -38,10 +39,15 @@ impl Homepage {
 			},
 			None => "",
 		};
+		let footer = match &config.footer {
+			Some(footer) => *footer,
+			None => true,
+		};
 
 		Self {
 			title: config.title.clone(),
 			theme,
+			footer,
 			bookmarks: converted_bookmarks,
 		}
 	}

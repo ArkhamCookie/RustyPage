@@ -11,6 +11,7 @@ use serde::Deserialize;
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: Option<String>,
+	pub(crate) footer: Option<bool>,
 	pub(crate) bookmarks: Vec<Bookmark>,
 }
 
