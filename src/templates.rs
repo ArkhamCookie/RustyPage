@@ -10,6 +10,7 @@ use serde::Deserialize;
 pub(crate) struct Homepage {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: &'static str,
+	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: bool,
 	pub(crate) bookmarks: Vec<ParsedBookmark>,
 }
@@ -47,6 +48,7 @@ impl Homepage {
 		Self {
 			title: config.title.clone(),
 			theme,
+			search_engine: config.search_engine.clone(),
 			footer,
 			bookmarks: converted_bookmarks,
 		}
