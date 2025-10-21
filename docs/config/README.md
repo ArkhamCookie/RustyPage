@@ -8,7 +8,7 @@ This program using the [directories crate](https://docs.rs/directories/latest/di
 ```toml
 title = "RustyPage" # Sets the title in the head (this is what shows on the tab)
 theme = "Frappe" # Select the Catppuccin Frappe theme for the color scheme
-search_engine = "https://duckduckgo.com/?q=%q" # Optioan search bar engine (replaces the '%q' with the query)
+search_engine = "https://duckduckgo.com/?q=%q" # Optional search bar engine (replaces the '%q' with the query)
 footer = true # Enable/disable footer
 
 [[bookmarks]] # Create a bookmark for the page
