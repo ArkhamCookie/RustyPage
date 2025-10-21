@@ -36,9 +36,11 @@
 
 <body>
 	{% if let Some(search_engine) = search_engine %}
-		<form id="search-bar">
-			<input id="search-input" placeholder="Search..." autocomplete="off">
-		</form>
+		{% if !search_engine.is_empty() %}
+			<form id="search-bar">
+				<input id="search-input" placeholder="Search..." autocomplete="off">
+			</form>
+		{% endif %}
 	{% endif %}
 
 	<section id=bookmarks-section>
