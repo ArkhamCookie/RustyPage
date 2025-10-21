@@ -1,5 +1,6 @@
 title = "ArkhamCookie's Homepage"
 theme = "catppuccin"
+search_engine = ""
 footer = true
 
 [[bookmarks]]

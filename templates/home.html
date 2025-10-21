@@ -40,6 +40,19 @@
 			<form id="search-bar">
 				<input id="search-input" placeholder="Search..." autocomplete="off">
 			</form>
+			<script>
+				const searchForm = document.querySelector("#search-bar");
+				const searchInput = document.querySelector("#search-input");
+
+				searchForm.addEventListener("submit", (event) => {
+					event.preventDefault();
+
+					const engine = "{{search_engine}}";
+					const url = engine.replace("%q", encodeURIComponent(searchInput.value));
+
+					window.open(url);
+				});
+			</script>
 		{% endif %}
 	{% endif %}
 
