@@ -16,6 +16,7 @@
 	{{ theme }}
 
 	<style>
+		/** Coloring */
 		body {
 			background: var(--base);
 			color: var(--text);
@@ -23,6 +24,24 @@
 
 		a {
 			color: var(--link);
+		}
+
+		#search-input {
+			background: var(--surface-zero);
+			color: var(--text);
+			border-color: var(--base);
+		}
+
+		/** Styling */
+		#search-input {
+			outline: none;
+		}
+
+		/** Positioning */
+		body {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
 		}
 
 		footer {
@@ -35,24 +54,47 @@
 </head>
 
 <body>
-	{% for bookmark in bookmarks %}
-		<div class="bookmark" id="{{bookmark.id}}">
-			<a href="{{bookmark.link}}">{{bookmark.name}}</a>
-		</div>
-
-		{% if !bookmark.shortcut.is_empty() %}
+	{% if let Some(search_engine) = search_engine %}
+		{% if !search_engine.is_empty() %}
+			<form id="search-bar">
+				<input id="search-input" placeholder="Search..." autocomplete="off">
+			</form>
 			<script>
-				function handleShortcut(event) {
-					if (event.key === "{{bookmark.shortcut}}") {
-						event.preventDefault();
-						window.open("{{bookmark.link}}")
-					}
-				}
+				const searchForm = document.querySelector("#search-bar");
+				const searchInput = document.querySelector("#search-input");
 
-				document.addEventListener("keydown", handleShortcut);
+				searchForm.addEventListener("submit", (event) => {
+					event.preventDefault();
+
+					const engine = "{{search_engine}}";
+					const url = engine.replace("%q", encodeURIComponent(searchInput.value));
+
+					window.open(url);
+				});
 			</script>
 		{% endif %}
-	{% endfor %}
+	{% endif %}
+
+	<section id=bookmarks-section>
+		{% for bookmark in bookmarks %}
+			<div class="bookmark" id="{{bookmark.id}}">
+				<a href="{{bookmark.link}}">{{bookmark.name}}</a>
+			</div>
+
+			{% if !bookmark.shortcut.is_empty() %}
+				<script>
+					function handleShortcut(event) {
+						if (event.key === "{{bookmark.shortcut}}") {
+							event.preventDefault();
+							window.open("{{bookmark.link}}")
+						}
+					}
+
+					document.addEventListener("keydown", handleShortcut);
+				</script>
+			{% endif %}
+		{% endfor %}
+	</section>
 
 	{% if footer %}
 		<footer>
