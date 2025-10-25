@@ -20,3 +20,7 @@ For a list of themes, go to the [themes docs](/docs/styles/themes/).
 - Fetch Favicons/Icons?
 - Folders/Sections?
 - More Themes
+
+## Attributions
+
+Search icon SVG by [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
