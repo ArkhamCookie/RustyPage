@@ -23,4 +23,4 @@ For a list of themes, go to the [themes docs](/docs/styles/themes/).
 
 ## Attributions
 
-Search icon SVG by [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
+- Search icon SVG by [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
