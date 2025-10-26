@@ -25,7 +25,6 @@ pub(crate) struct Bookmark {
 
 #[derive(Debug, Deserialize)]
 pub(crate) struct ParsedBookmark {
-	// pub(crate) icon: String,
 	pub(crate) id: String,
 	pub(crate) link: String,
 	pub(crate) name: String,
