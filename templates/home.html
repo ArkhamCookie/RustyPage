@@ -16,25 +16,22 @@
 	{{ theme }}
 
 	<style>
-		/** Coloring */
-		body {
-			background: var(--base);
-			color: var(--text);
-		}
-
-		a {
-			color: var(--link);
-		}
-
-		#search-input {
-			background: var(--surface-zero);
-			color: var(--text);
-			border-color: var(--base);
-		}
-
 		/** Styling */
+		#search-btn,
+		#search-input {
+			border: 3px;
+			border-style: solid;
+		}
+
+		#search-btn {
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+		}
+
 		#search-input {
 			outline: none;
+			border-right: none;
+			border-radius: 5px 0 0 5px;
 		}
 
 		/** Positioning */
@@ -54,7 +51,46 @@
 		}
 
 		#search-bar {
-			margin: 3vh;
+			margin-bottom: 3vh;
+		}
+
+		#search-btn {
+			width: 40px;
+			height: 36px;
+			vertical-align: -7px;
+		}
+
+		#search-input {
+			padding: 5px;
+			height: 20px;
+			width: 40vw;
+		}
+
+		/** Coloring */
+		body {
+			background: var(--base);
+			color: var(--text);
+		}
+
+		a {
+			color: var(--link);
+		}
+
+		#search-btn {
+			background-color: var(--border);
+		}
+		#search-btn > i > svg {
+			stroke: var(--surface-zero);
+		}
+
+		#search-input {
+			background-color: var(--surface-zero);
+			color: var(--text);
+		}
+
+		#search-input,
+		#search-btn {
+			border-color: var(--border);
 		}
 	</style>
 </head>
@@ -63,7 +99,14 @@
 	{% if let Some(search_engine) = search_engine %}
 		{% if !search_engine.is_empty() %}
 			<form id="search-bar">
-				<input id="search-input" placeholder="Search..." autocomplete="off">
+				<input id="search-input" placeholder="Search..." autocomplete="off"><button id="search-btn">
+					<i>
+						<!-- From https://dazzleui.gumroad.com/l/dazzleiconsfree -->
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</i>
+				</button>
 			</form>
 			<script>
 				const searchForm = document.querySelector("#search-bar");
