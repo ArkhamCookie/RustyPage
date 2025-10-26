@@ -26,6 +26,9 @@ jobs:
     - name: Install RustyPage
       run: cargo install --path .
 
-    # Testing if RustyPage was installed
+    # Build static page
+    - name: Build RustyPage
+      run: rustypage --config-file ./docs/config/examples/full.toml
+
     - name: Test 1
-      run: rustypage --help
+      run: ls
