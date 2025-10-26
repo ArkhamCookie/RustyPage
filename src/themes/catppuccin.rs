@@ -6,7 +6,7 @@ pub(crate) const CATPPUCCIN_LATTE: &str = "<style>
 			--base: #EFF1F5;
 			--text: #4C4F69;
 			--link: #1E66F5;
-			--surface-zero: #CCD0DA
+			--surface-zero: #CCD0DA;
 			--border: #DCE0E8
 		}
 	</style>";
@@ -26,7 +26,7 @@ pub(crate) const CATPPUCCIN_MACCHIATO: &str = "<style>
 			--base: #24273A;
 			--text: #CAD3F5;
 			--link: #8ADDF4;
-			--surface-zero: #363A4F
+			--surface-zero: #363A4F;
 			--border: #232634;
 		}
 	</style>";
