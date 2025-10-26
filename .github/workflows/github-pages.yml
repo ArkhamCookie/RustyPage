@@ -28,7 +28,4 @@ jobs:
 
     # Testing if RustyPage was installed
     - name: Test 1
-      run: ls -A .
-
-    - name: Test 2
-      run: ls ~
+      run: rustypage --help
