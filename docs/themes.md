@@ -1,6 +1,10 @@
 # Themes
 
-All supported themes for RustyPage in normal css files for ease of reading and editing.
+You can choose a theme by adding this to your config file.
+
+```toml
+theme = "theme_name"
+```
 
 ## Theme List
 
