@@ -13,7 +13,7 @@ You can also optionally add a shortcut key that opens a bookmark in a new tab.
 
 Add a search bar to your page with an engine of your choice.
 
-## Themes
+### Themes
 
 RustyPage has an optional theme selection.
 
