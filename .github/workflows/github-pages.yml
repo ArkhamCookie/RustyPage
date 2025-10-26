@@ -40,13 +40,9 @@ jobs:
     - name: Install RustyPage
       run: cargo install --path .
 
-    # Make public directory
-    - name: Make public directory
-      run: mkdir ./public
-
     # Build static page
     - name: Build RustyPage
-      run: rustypage --config-file ./docs/config/examples/full.toml ./public/index.html
+      run: rustypage --config-file ./docs/config/examples/full.toml
 
     # Setup Pages
     - name: Setup Pages
@@ -54,7 +50,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './public'
+        path: './index.html'
 
     # Deploy to GitHubPages
     - name: Deploy to GitHub Pages
