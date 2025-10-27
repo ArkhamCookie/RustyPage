@@ -115,6 +115,25 @@ mod tests {
 	use std::path::PathBuf;
 
 	#[test]
+	fn parse_bookmark_with_shortcut() {
+		let want = ParsedBookmark {
+			id: String::from("bookmark-0"),
+			link: String::from("https://github.com"),
+			name: String::from("GitHub"),
+			shortcut: String::from("g"),
+		};
+
+		let bookmark = Bookmark {
+			link: String::from("https://github.com"),
+			name: String::from("GitHub"),
+			shortcut: Some(String::from("g")),
+		};
+		let got = ParsedBookmark::parse(&bookmark, 0);
+
+		assert_eq!(want, got);
+	}
+
+	#[test]
 	fn parse_all_bookmarks() {
 		let want = vec![
 			ParsedBookmark {
