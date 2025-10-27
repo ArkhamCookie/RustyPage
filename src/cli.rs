@@ -2,6 +2,7 @@ use std::path::PathBuf;
 
 use clap::Parser;
 
+/// Commandline arguments for RustyPage
 #[derive(Parser)]
 pub(crate) struct Args {
 	/// Manually set the config file used to create RustyHome
