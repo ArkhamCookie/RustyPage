@@ -13,6 +13,9 @@ theme = "theme_name"
   - Frappe
   - Macchiato
   - Mocha
+- [Dracula](https://draculatheme.com)
+  - Alucard
+  - Dracula
 
 ## Adding a Theme
 
