@@ -6,7 +6,7 @@ pub(crate) const DRACULA_DEFAULT: &str = "<style>
 			--background: #282A36;
 			--text: #F8F8F2;
 			--link: #8BE9FD;
-			--surface-zero: #6272A4
+			--surface-zero: #6272A4;
 			--border: #44475A;
 		}
 	</style>";
