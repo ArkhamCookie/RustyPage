@@ -10,3 +10,14 @@ pub(crate) const DRACULA_DEFAULT: &str = "<style>
 			--border: #44475A;
 		}
 	</style>";
+
+/// [Dracula](https://draculatheme.com) Alucard Theme
+pub(crate) const DRACULA_ALUCARD: &str = "<style>
+		:root {
+			--background: #FFFBEB;
+			--text: #1F1F1F;
+			--link: #036A96;
+			--surface-zero: #6C664B;
+			--border: #CFCFDE;
+		}
+	</style>";
