@@ -23,7 +23,7 @@ pub(crate) struct Bookmark {
 	pub(crate) shortcut: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct ParsedBookmark {
 	pub(crate) id: String,
 	pub(crate) link: String,
@@ -110,9 +110,43 @@ fn get_config_from_file(config_file: &PathBuf) -> Config {
 
 #[cfg(test)]
 mod tests {
-    use crate::config::{get_config_from_file, Bookmark, Config};
+    use crate::config::{get_config_from_file, Bookmark, Config, ParsedBookmark};
 
 	use std::path::PathBuf;
+
+	#[test]
+	fn parse_all_bookmarks() {
+		let want = vec![
+			ParsedBookmark {
+				link: String::from("https://github.com"),
+				id: String::from("bookmark-0"),
+				name: String::from("GitHub"),
+				shortcut: String::from("g"),
+			},
+			ParsedBookmark {
+				link: String::from("https://arkhamcookie.com"),
+				id: String::from("bookmark-1"),
+				name: String::from("ArkhamCookie"),
+				shortcut: String::from(""),
+			}
+		];
+
+		let bookmarks = vec![
+			Bookmark {
+				link: String::from("https://github.com"),
+				name: String::from("GitHub"),
+				shortcut: Some(String::from("g")),
+			},
+			Bookmark {
+				link: String::from("https://arkhamcookie.com"),
+				name: String::from("ArkhamCookie"),
+				shortcut: None,
+			},
+		];
+		let got = ParsedBookmark::convert_all(&bookmarks);
+
+		assert_eq!(want, got)
+	}
 
 	#[test]
 	fn get_full_config() {
