@@ -133,6 +133,26 @@ mod tests {
 		assert_eq!(want, got)
 	}
 
+
+	#[test]
+	fn parse_bookmark_without_shortcut() {
+		let want = ParsedBookmark {
+			id: String::from("bookmark-0"),
+			link: String::from("https://arkhamcookie.com"),
+			name: String::from("ArkhamCookie"),
+			shortcut: String::from(""),
+		};
+
+		let bookmark = Bookmark {
+			link: String::from("https://arkhamcookie.com"),
+			name: String::from("ArkhamCookie"),
+			shortcut: None,
+		};
+		let got = ParsedBookmark::parse(&bookmark, 0);
+
+		assert_eq!(want, got)
+	}
+
 	#[test]
 	fn parse_all_bookmarks() {
 		let want = vec![
