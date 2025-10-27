@@ -9,4 +9,4 @@ pub(crate) const DRACULA_DEFAULT: &str = "<style>
 			--surface-zero: #6272A4
 			--border: #44475A;
 		}
-	<style>";
+	</style>";
