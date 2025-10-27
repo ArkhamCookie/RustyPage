@@ -7,6 +7,7 @@ use directories::ProjectDirs;
 
 use serde::Deserialize;
 
+/// RustyPage config struct
 #[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
@@ -16,6 +17,7 @@ pub(crate) struct Config {
 	pub(crate) bookmarks: Vec<Bookmark>,
 }
 
+/// Bookmark from Config before being parsed
 #[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Bookmark {
 	pub(crate) link: String,
@@ -23,6 +25,7 @@ pub(crate) struct Bookmark {
 	pub(crate) shortcut: Option<String>,
 }
 
+/// Bookmark from Config after being parsed
 #[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct ParsedBookmark {
 	pub(crate) id: String,
@@ -32,6 +35,7 @@ pub(crate) struct ParsedBookmark {
 }
 
 impl ParsedBookmark {
+	/// Convert a Bookmark into a ParsedBookmark
 	fn parse(bookmark: &Bookmark, id: i32) -> Self {
 		let parsed_shortcut: String;
 
@@ -49,6 +53,7 @@ impl ParsedBookmark {
 		}
 	}
 
+	/// Convert all a vec of Bookmark into a vec of ParsedBookmarks
 	pub(crate) fn convert_all(bookmarks: &Vec<Bookmark>) -> Vec<Self> {
 		let mut id = 0;
 		let mut current_bookmark;
@@ -64,6 +69,7 @@ impl ParsedBookmark {
 	}
 }
 
+/// Get config file either from config file arg or from config directory
 pub(crate) fn get_config(args: &Args) -> Config {
 	if let Some(config_file) = &args.config_file {
 		return get_config_from_file(&config_file);
@@ -72,6 +78,7 @@ pub(crate) fn get_config(args: &Args) -> Config {
 	get_config_from_dirs()
 }
 
+/// Get config from config directory file (creates one if needed)
 fn get_config_from_dirs() -> Config {
 	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustypage")
 		.expect("error couldn't get project directory");
@@ -102,6 +109,7 @@ name = \"ArkhamCookie\"
 	get_config_from_file(&config_path)
 }
 
+/// Get config from a given file
 fn get_config_from_file(config_file: &PathBuf) -> Config {
 	let toml_string = fs::read_to_string(config_file).expect("Error reading file");
 
@@ -114,6 +122,7 @@ mod tests {
 
 	use std::path::PathBuf;
 
+	/// Test parsing a single bookmark with a shortcut
 	#[test]
 	fn parse_bookmark_with_shortcut() {
 		let want = ParsedBookmark {
@@ -134,6 +143,7 @@ mod tests {
 	}
 
 
+	/// Test parsing a single bookmark without a shortcut
 	#[test]
 	fn parse_bookmark_without_shortcut() {
 		let want = ParsedBookmark {
@@ -153,6 +163,7 @@ mod tests {
 		assert_eq!(want, got)
 	}
 
+	/// Test parsing a vec of bookmarks
 	#[test]
 	fn parse_all_bookmarks() {
 		let want = vec![
@@ -187,6 +198,7 @@ mod tests {
 		assert_eq!(want, got)
 	}
 
+	/// Test that config matches what we want
 	#[test]
 	fn get_full_config() {
 		let want_bookmarks = vec![
