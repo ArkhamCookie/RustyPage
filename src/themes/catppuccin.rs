@@ -1,5 +1,6 @@
 //! [Cappuccin](https://catppuccin.com) Themes
 
+/// [Catppuccin](https://catppuccin.com/) Latte Theme
 pub(crate) const CATPPUCCIN_LATTE: &str = "<style>
 		:root {
 			--base: #EFF1F5;
@@ -10,6 +11,7 @@ pub(crate) const CATPPUCCIN_LATTE: &str = "<style>
 		}
 	</style>";
 
+/// [Catppuccin](https://catppuccin.com/) Frappe Theme
 pub(crate) const CATPPUCCIN_FRAPPE: &str = "<style>
 		:root {
 			--base: #303446;
@@ -20,6 +22,7 @@ pub(crate) const CATPPUCCIN_FRAPPE: &str = "<style>
 		}
 	</style>";
 
+/// [Catppuccin](https://catppuccin.com/) Macchiato Theme
 pub(crate) const CATPPUCCIN_MACCHIATO: &str = "<style>
 		:root {
 			--base: #24273A;
@@ -30,6 +33,7 @@ pub(crate) const CATPPUCCIN_MACCHIATO: &str = "<style>
 		}
 	</style>";
 
+/// [Catppuccin](https://catppuccin.com/) Mocha Theme
 pub(crate) const CATPPUCCIN_MOCHA: &str = "<style>
 		:root {
 			--base: #1E1E2E;
