@@ -1,0 +1,8 @@
+# blank_issues_enabled: false
+contact_links:
+  - name: Support
+    url: https://github.com/ArkhamCookie/RustyPage/blob/main/docs/SUPPORT.md
+    about: For support questions, first see link.
+  - name: Security
+    url: https://github.com/ArkhamCookie/.github/blob/main/docs/SECURITY.md
+    about: Report possible security vulnerabilities.
