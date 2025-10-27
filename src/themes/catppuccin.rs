@@ -1,5 +1,4 @@
-/// Cappuccin Themes
-/// https://catppuccin.com
+//! [Cappuccin](https://catppuccin.com) Themes
 
 pub(crate) const CATPPUCCIN_LATTE: &str = "<style>
 		:root {
