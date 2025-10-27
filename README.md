@@ -17,7 +17,7 @@ Add a search bar to your page with an engine of your choice.
 
 RustyPage has an optional theme selection.
 
-For a list of themes, go to the [themes docs](/docs/themes.md).
+For a list of themes, go to the [themes documentation](/docs/themes.md).
 
 ## Future Features
 
