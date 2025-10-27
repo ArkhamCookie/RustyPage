@@ -1,0 +1,91 @@
+name: Bug Report
+description: Create a bug report to help improve RustyPage.
+title: "[BUG]: "
+labels:
+  - "bug"
+# projects:
+# assignees:
+
+body:
+- type: checkboxes
+  id: prerequisites
+  attributes:
+    label: Prerequisites
+    description: Please make sure you have done all of the following.
+    options:
+      - label: I agree to follow the [Code of Conduct](https://github.com/ArkhamCookie/.github/blob/main/docs/CODE_OF_CONDUCT.md)
+        required: true
+      - label: This is **not** a support question/issue. See [asking for help](https://github.com/ArkhamCookie/RustyPage/blob/main/docs/SUPPORT.md)*
+        required: true
+      - label: This is **not** a security vulnerability. *See [security policy](https://github.com/ArkhamCookie/.github/blob/main/docs/SECURITY.md)*
+        required: true
+      - label: I have searched for [existing issues](https://github.com/ArkhamCookie/RustyPage/issues) that already report this problem, without success.
+        required: true
+
+# Bug
+- type: textarea
+  attributes:
+    label: Current Behavior
+    description: Please describe the problem you are having.
+    placeholder: "**Don't paste logs here!**"
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: Please describe what you expected to happen.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Step to Reproduce
+    description: Steps to Reproduce
+    placeholder: |
+      1.
+      2.
+      3.
+  validations:
+    required: true
+
+# Environment
+- type: markdown
+  attributes:
+    value: If tested in more than one environment,
+- type: input
+  attributes:
+    label: OS
+    description: Operating system
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Cargo Version
+    description: "`cargo --version`"
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Browser
+    description: Browser Used (if applicable)
+- type: input
+  attributes:
+    label: Logs
+    description: |
+      Create a [Gist](https://gist.github.com) of your logs or attach your log file.
+
+      :warning: **Remember to remove any sensitive infomation!**
+    placeholder: "https://gist.github.com/..."
+
+# Anything Else
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: List any other information relevant to your issue.
+- type: markdown
+  attributes:
+    value: |
+      - Related issues
+      - Stack traces
+      - Suggestions on how to fix
+      - External Links
+      - etc.
