@@ -14,7 +14,7 @@ pub(crate) struct Config {
 	pub(crate) theme: Option<String>,
 	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: Option<bool>,
-	pub(crate) bookmarks: Vec<Bookmark>,
+	pub(crate) bookmarks: Option<Vec<Bookmark>>,
 }
 
 /// Bookmark from Config before being parsed
