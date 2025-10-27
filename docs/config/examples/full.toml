@@ -4,10 +4,10 @@ search_engine = "https://duckduckgo.com/?q=%q"
 footer = true
 
 [[bookmarks]]
-link = "https://youtube.com"
-name = "YouTube"
-shortcut = "y"
+link = "https://github.com"
+name = "GitHub"
+shortcut = "g"
 
 [[bookmarks]]
-link = "https://discord.com"
-name = "Discord"
+link = "https://arkhamcookie.com"
+name = "ArkhamCookie"

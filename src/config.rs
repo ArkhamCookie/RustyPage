@@ -7,7 +7,7 @@ use directories::ProjectDirs;
 
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: Option<String>,
@@ -16,14 +16,14 @@ pub(crate) struct Config {
 	pub(crate) bookmarks: Vec<Bookmark>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Bookmark {
 	pub(crate) link: String,
 	pub(crate) name: String,
 	pub(crate) shortcut: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct ParsedBookmark {
 	pub(crate) id: String,
 	pub(crate) link: String,
@@ -90,11 +90,6 @@ name = \"GitHub\"
 shortcut = \"g\"
 
 [[bookmarks]]
-link = \"https://youtube.com\"
-name = \"YouTube\"
-shortcut = \"y\"
-
-[[bookmarks]]
 link = \"https://arkhamcookie.com\"
 name = \"ArkhamCookie\"
 	",
@@ -111,4 +106,110 @@ fn get_config_from_file(config_file: &PathBuf) -> Config {
 	let toml_string = fs::read_to_string(config_file).expect("Error reading file");
 
 	toml::from_str(&toml_string).expect("Error parsing config file")
+}
+
+#[cfg(test)]
+mod tests {
+	use crate::config::{Bookmark, Config, ParsedBookmark, get_config_from_file};
+
+	use std::path::PathBuf;
+
+	#[test]
+	fn parse_bookmark_with_shortcut() {
+		let want = ParsedBookmark {
+			id: String::from("bookmark-0"),
+			link: String::from("https://github.com"),
+			name: String::from("GitHub"),
+			shortcut: String::from("g"),
+		};
+
+		let bookmark = Bookmark {
+			link: String::from("https://github.com"),
+			name: String::from("GitHub"),
+			shortcut: Some(String::from("g")),
+		};
+		let got = ParsedBookmark::parse(&bookmark, 0);
+
+		assert_eq!(want, got)
+	}
+
+
+	#[test]
+	fn parse_bookmark_without_shortcut() {
+		let want = ParsedBookmark {
+			id: String::from("bookmark-0"),
+			link: String::from("https://arkhamcookie.com"),
+			name: String::from("ArkhamCookie"),
+			shortcut: String::from(""),
+		};
+
+		let bookmark = Bookmark {
+			link: String::from("https://arkhamcookie.com"),
+			name: String::from("ArkhamCookie"),
+			shortcut: None,
+		};
+		let got = ParsedBookmark::parse(&bookmark, 0);
+
+		assert_eq!(want, got)
+	}
+
+	#[test]
+	fn parse_all_bookmarks() {
+		let want = vec![
+			ParsedBookmark {
+				link: String::from("https://github.com"),
+				id: String::from("bookmark-0"),
+				name: String::from("GitHub"),
+				shortcut: String::from("g"),
+			},
+			ParsedBookmark {
+				link: String::from("https://arkhamcookie.com"),
+				id: String::from("bookmark-1"),
+				name: String::from("ArkhamCookie"),
+				shortcut: String::from(""),
+			},
+		];
+
+		let bookmarks = vec![
+			Bookmark {
+				link: String::from("https://github.com"),
+				name: String::from("GitHub"),
+				shortcut: Some(String::from("g")),
+			},
+			Bookmark {
+				link: String::from("https://arkhamcookie.com"),
+				name: String::from("ArkhamCookie"),
+				shortcut: None,
+			},
+		];
+		let got = ParsedBookmark::convert_all(&bookmarks);
+
+		assert_eq!(want, got)
+	}
+
+	#[test]
+	fn get_full_config() {
+		let want_bookmarks = vec![
+			Bookmark {
+				link: String::from("https://github.com"),
+				name: String::from("GitHub"),
+				shortcut: Some(String::from("g")),
+			},
+			Bookmark {
+				link: String::from("https://arkhamcookie.com"),
+				name: String::from("ArkhamCookie"),
+				shortcut: None,
+			},
+		];
+		let want = Config {
+			title: Some(String::from("ArkhamCookie's Homepage")),
+			theme: Some(String::from("catppuccin")),
+			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
+			footer: Some(true),
+			bookmarks: want_bookmarks,
+		};
+		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
+
+		assert_eq!(want, got)
+	}
 }
