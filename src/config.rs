@@ -90,11 +90,6 @@ name = \"GitHub\"
 shortcut = \"g\"
 
 [[bookmarks]]
-link = \"https://youtube.com\"
-name = \"YouTube\"
-shortcut = \"y\"
-
-[[bookmarks]]
 link = \"https://arkhamcookie.com\"
 name = \"ArkhamCookie\"
 	",
