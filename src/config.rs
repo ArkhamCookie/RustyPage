@@ -110,7 +110,7 @@ fn get_config_from_file(config_file: &PathBuf) -> Config {
 
 #[cfg(test)]
 mod tests {
-    use crate::config::{get_config_from_file, Bookmark, Config, ParsedBookmark};
+	use crate::config::{Bookmark, Config, ParsedBookmark, get_config_from_file};
 
 	use std::path::PathBuf;
 
@@ -130,7 +130,7 @@ mod tests {
 		};
 		let got = ParsedBookmark::parse(&bookmark, 0);
 
-		assert_eq!(want, got);
+		assert_eq!(want, got)
 	}
 
 	#[test]
@@ -147,7 +147,7 @@ mod tests {
 				id: String::from("bookmark-1"),
 				name: String::from("ArkhamCookie"),
 				shortcut: String::from(""),
-			}
+			},
 		];
 
 		let bookmarks = vec![
@@ -169,7 +169,6 @@ mod tests {
 
 	#[test]
 	fn get_full_config() {
-
 		let want_bookmarks = vec![
 			Bookmark {
 				link: String::from("https://github.com"),
@@ -180,7 +179,7 @@ mod tests {
 				link: String::from("https://arkhamcookie.com"),
 				name: String::from("ArkhamCookie"),
 				shortcut: None,
-			}
+			},
 		];
 		let want = Config {
 			title: Some(String::from("ArkhamCookie's Homepage")),
