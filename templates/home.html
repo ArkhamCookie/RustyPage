@@ -124,26 +124,28 @@
 		{% endif %}
 	{% endif %}
 
-	<section id=bookmarks-section>
-		{% for bookmark in bookmarks %}
-			<div class="bookmark" id="{{bookmark.id}}">
-				<a href="{{bookmark.link}}">{{bookmark.name}}</a>
-			</div>
+	{% if let Some(bookmarks) = bookmarks %}
+		<section id=bookmarks-section>
+			{% for bookmark in bookmarks %}
+				<div class="bookmark" id="{{bookmark.id}}">
+					<a href="{{bookmark.link}}">{{bookmark.name}}</a>
+				</div>
 
-			{% if !bookmark.shortcut.is_empty() %}
-				<script>
-					function handleShortcut(event) {
-						if (event.key === "{{bookmark.shortcut}}") {
-							event.preventDefault();
-							window.open("{{bookmark.link}}")
+				{% if !bookmark.shortcut.is_empty() %}
+					<script>
+						function handleShortcut(event) {
+							if (event.key === "{{bookmark.shortcut}}") {
+								event.preventDefault();
+								window.open("{{bookmark.link}}")
+							}
 						}
-					}
 
-					document.addEventListener("keydown", handleShortcut);
-				</script>
-			{% endif %}
-		{% endfor %}
-	</section>
+						document.addEventListener("keydown", handleShortcut);
+					</script>
+				{% endif %}
+			{% endfor %}
+		</section>
+	{% endif %}
 
 	{% if footer %}
 		<footer>
