@@ -7,7 +7,7 @@ use directories::ProjectDirs;
 
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: Option<String>,
@@ -16,7 +16,7 @@ pub(crate) struct Config {
 	pub(crate) bookmarks: Vec<Bookmark>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Bookmark {
 	pub(crate) link: String,
 	pub(crate) name: String,
@@ -106,4 +106,38 @@ fn get_config_from_file(config_file: &PathBuf) -> Config {
 	let toml_string = fs::read_to_string(config_file).expect("Error reading file");
 
 	toml::from_str(&toml_string).expect("Error parsing config file")
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::config::{get_config_from_file, Bookmark, Config};
+
+	use std::path::PathBuf;
+
+	#[test]
+	fn get_full_config() {
+
+		let want_bookmarks = vec![
+			Bookmark {
+				link: String::from("https://github.com"),
+				name: String::from("GitHub"),
+				shortcut: Some(String::from("g")),
+			},
+			Bookmark {
+				link: String::from("https://arkhamcookie.com"),
+				name: String::from("ArkhamCookie"),
+				shortcut: None,
+			}
+		];
+		let want = Config {
+			title: Some(String::from("ArkhamCookie's Homepage")),
+			theme: Some(String::from("catppuccin")),
+			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
+			footer: Some(true),
+			bookmarks: want_bookmarks,
+		};
+		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
+
+		assert_eq!(want, got)
+	}
 }
