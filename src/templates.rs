@@ -7,6 +7,7 @@ use askama::Template;
 
 use serde::Deserialize;
 
+/// Homepage template variables
 #[derive(Debug, Deserialize, Template)]
 #[template(path = "home.html", escape = "none")]
 pub(crate) struct Homepage {
@@ -18,6 +19,7 @@ pub(crate) struct Homepage {
 }
 
 impl Homepage {
+	/// Create Homepage with a given config
 	pub(crate) fn new(config: &Config) -> Self {
 		let converted_bookmarks = ParsedBookmark::convert_all(&config.bookmarks);
 		let theme = match &config.theme {
@@ -48,6 +50,7 @@ impl Homepage {
 		}
 	}
 
+	/// Convert Homepage to a String
 	pub(crate) fn render(template: &Self) -> Result<String, askama::Error> {
 		template.render()
 	}
