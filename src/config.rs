@@ -218,7 +218,7 @@ mod tests {
 			theme: Some(String::from("catppuccin")),
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
 			footer: Some(true),
-			bookmarks: want_bookmarks,
+			bookmarks: Some(want_bookmarks),
 		};
 		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
 
