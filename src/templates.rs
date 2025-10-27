@@ -2,7 +2,7 @@ use crate::config::{Config, ParsedBookmark};
 use crate::themes::catppuccin::{
 	CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE, CATPPUCCIN_MACCHIATO, CATPPUCCIN_MOCHA,
 };
-use crate::themes::dracula::DRACULA_DEFAULT;
+use crate::themes::dracula::{DRACULA_ALUCARD, DRACULA_DEFAULT};
 
 use askama::Template;
 
@@ -30,6 +30,7 @@ impl Homepage {
 				"catppuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => &CATPPUCCIN_MACCHIATO,
 				"catppuccin-mocha" | "catppuccin_mocha" | "mocha" => &CATPPUCCIN_MOCHA,
 				"dracula" => &DRACULA_DEFAULT,
+				"alucard" => &DRACULA_ALUCARD,
 				"" => "",
 				_ => {
 					eprintln!("WARNING: Unreconized theme in config file!");
