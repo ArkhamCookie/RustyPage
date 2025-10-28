@@ -50,7 +50,7 @@ body:
 # Environment
 - type: markdown
   attributes:
-    value: If tested in more than one environment,
+    value: Environment
 - type: input
   attributes:
     label: OS
