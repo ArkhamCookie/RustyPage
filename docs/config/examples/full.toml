@@ -3,6 +3,10 @@ theme = "catppuccin"
 search_engine = "https://duckduckgo.com/?q=%q"
 footer = true
 
+[clock]
+timezone = "CST"
+twelve_hour = true
+
 [[bookmarks]]
 link = "https://github.com"
 name = "GitHub"
