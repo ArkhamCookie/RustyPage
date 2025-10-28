@@ -12,9 +12,17 @@ use serde::Deserialize;
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: Option<String>,
+	pub(crate) clock: Option<Clock>,
 	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: Option<bool>,
 	pub(crate) bookmarks: Option<Vec<Bookmark>>,
+}
+
+/// Clock from Config
+#[derive(Debug, Deserialize, PartialEq)]
+pub(crate) struct Clock {
+	timezone: Option<String>,
+	twelve_hour: Option<bool>,
 }
 
 /// Bookmark from Config before being parsed
@@ -118,7 +126,7 @@ fn get_config_from_file(config_file: &PathBuf) -> Config {
 
 #[cfg(test)]
 mod tests {
-	use crate::config::{Bookmark, Config, ParsedBookmark, get_config_from_file};
+	use crate::config::{Bookmark, Clock, Config, ParsedBookmark, get_config_from_file};
 
 	use std::path::PathBuf;
 
@@ -201,6 +209,10 @@ mod tests {
 	/// Test that config matches what we want
 	#[test]
 	fn get_full_config() {
+		let wanted_clock = Clock {
+			timezone: Some(String::from("CST")),
+			twelve_hour: Some(true),
+		};
 		let want_bookmarks = vec![
 			Bookmark {
 				link: String::from("https://github.com"),
@@ -216,6 +228,7 @@ mod tests {
 		let want = Config {
 			title: Some(String::from("ArkhamCookie's Homepage")),
 			theme: Some(String::from("catppuccin")),
+			clock: Some(wanted_clock),
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
 			footer: Some(true),
 			bookmarks: Some(want_bookmarks),
