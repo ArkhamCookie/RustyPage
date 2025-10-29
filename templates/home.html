@@ -96,6 +96,56 @@
 </head>
 
 <body>
+	{% if let Some(clock) = clock %}
+		<div id="clock"></div>
+
+		<script>
+			function showTime() {
+				let date = new Date();
+				let hour = date.getHours();
+				let minute = date.getMinutes();
+				let am;
+
+				{% if let Some(twelve_hour) = clock.twelve_hour %}
+					{% if twelve_hour %}
+						am = true;
+
+						if (hour > 12) {
+							am = false;
+							hour = hour - 12;
+						}
+					{% endif %}
+				{% endif %}
+
+				if (hour < 10) {
+					hour = "0" + hour;
+				}
+				if (minute < 10) {
+					minute = "0" + minute;
+				}
+
+				if (am === undefined) {
+					am = "";
+				}
+				if (am === true) {
+					am = " AM";
+				}
+				if (am === false) {
+					am = " PM";
+				}
+
+				let time = hour + ":" + minute + am;
+
+				document.getElementById("clock").innerText = time;
+				document.getElementById("clock").textContent = time;
+
+				setTimeout(showTime, 1000);
+			}
+
+			showTime()
+		</script>
+	{% endif %}
+
 	{% if let Some(search_engine) = search_engine %}
 		{% if !search_engine.is_empty() %}
 			<form id="search-bar">
