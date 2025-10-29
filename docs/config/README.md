@@ -11,6 +11,9 @@ theme = "Frappe" # Select the Catppuccin Frappe theme for the color scheme
 search_engine = "https://duckduckgo.com/?q=%q" # Optional search bar engine (replaces the '%q' with the query)
 footer = true # Enable/disable footer
 
+[clock] # Enable the clock widget
+twelve_hour = true # Sets if clock will be 12 (true) or 24 hour (false)
+
 [[bookmarks]] # Create a bookmark for the page
 link = "https://youtube.com" # Link of the bookmark (Required if creating a bookmark)
 name = "YouTube" # Name of the bookmark (Required if creating bookmark)
