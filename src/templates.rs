@@ -1,4 +1,4 @@
-use crate::config::{Config, ParsedBookmark};
+use crate::config::{Clock, Config, ParsedBookmark};
 use crate::themes::catppuccin::{
 	CATPPUCCIN_FRAPPE, CATPPUCCIN_LATTE, CATPPUCCIN_MACCHIATO, CATPPUCCIN_MOCHA,
 };
@@ -15,6 +15,7 @@ use serde::Deserialize;
 pub(crate) struct Homepage {
 	pub(crate) title: Option<String>,
 	pub(crate) theme: &'static str,
+	pub(crate) clock: Option<Clock>,
 	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: bool,
 	pub(crate) bookmarks: Option<Vec<ParsedBookmark>>,
@@ -53,6 +54,7 @@ impl Homepage {
 		Self {
 			title: config.title.clone(),
 			theme,
+			clock: config.clock.clone(),
 			search_engine: config.search_engine.clone(),
 			footer,
 			bookmarks: converted_bookmarks,

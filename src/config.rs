@@ -19,7 +19,7 @@ pub(crate) struct Config {
 }
 
 /// Clock from Config
-#[derive(Debug, Deserialize, PartialEq)]
+#[derive(Clone, Debug, Deserialize, PartialEq)]
 pub(crate) struct Clock {
 	timezone: Option<String>,
 	twelve_hour: Option<bool>,
