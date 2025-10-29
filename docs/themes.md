@@ -29,7 +29,7 @@ it just requires some basic knowledge about CSS and a tiny bit of Rust.
 1. First create a file in [src/themes/](/src/themes/) with the name of your theme.
 2. Add your file to the [theme mod file](/src/themes/mod.rs).
 3. Add a doc comment (`//!` at the top) at the top of your file saying what your theme is.
-**Make sure to get credit!**
+**Make sure to give credit!**
 4. Create a const &str with the name of your theme or variation, if applicable.
 (`pub(crate) const YOUR_THEME: &str = "";`)
 5. Add the required variables to `:root`.
