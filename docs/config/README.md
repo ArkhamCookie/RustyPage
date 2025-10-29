@@ -12,7 +12,6 @@ search_engine = "https://duckduckgo.com/?q=%q" # Optional search bar engine (rep
 footer = true # Enable/disable footer
 
 [clock] # Enable the clock widget
-timezone = "CST" # Timezone for the clock to be set to
 twelve_hour = true # Sets if clock will be 12 (true) or 24 hour (false)
 
 [[bookmarks]] # Create a bookmark for the page

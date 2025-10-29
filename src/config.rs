@@ -21,7 +21,6 @@ pub(crate) struct Config {
 /// Clock from Config
 #[derive(Clone, Debug, Deserialize, PartialEq)]
 pub(crate) struct Clock {
-	pub(crate) timezone: Option<String>,
 	pub(crate) twelve_hour: Option<bool>,
 }
 
@@ -210,7 +209,6 @@ mod tests {
 	#[test]
 	fn get_full_config() {
 		let wanted_clock = Clock {
-			timezone: Some(String::from("CST")),
 			twelve_hour: Some(true),
 		};
 		let want_bookmarks = vec![
