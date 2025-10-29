@@ -21,8 +21,8 @@ pub(crate) struct Config {
 /// Clock from Config
 #[derive(Clone, Debug, Deserialize, PartialEq)]
 pub(crate) struct Clock {
-	timezone: Option<String>,
-	twelve_hour: Option<bool>,
+	pub(crate) timezone: Option<String>,
+	pub(crate) twelve_hour: Option<bool>,
 }
 
 /// Bookmark from Config before being parsed
