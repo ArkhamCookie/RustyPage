@@ -17,7 +17,13 @@ fn main() {
 
 	let config = get_config(&args);
 	let homepage = Homepage::new(&config);
-	let rendered = Homepage::render(&homepage).expect("error rendering template");
+	let rendered = match Homepage::render(&homepage) {
+		Ok(rendered) => rendered,
+		Err(error) => {
+			eprintln!("ERROR: {}", error);
+			exit(1);
+		}
+	};
 
 	let output_path = get_path(&args.output_file);
 
