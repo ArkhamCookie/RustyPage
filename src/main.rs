@@ -24,7 +24,7 @@ fn main() {
 		output_path = path;
 	}
 
-	let output = match fs::write(output_path, rendered) {
+	let _ = match fs::write(output_path, rendered) {
 		Ok(output) => output,
 		Err(error) => match error.kind() {
 			_ => {
