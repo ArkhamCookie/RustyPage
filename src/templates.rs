@@ -14,6 +14,7 @@ use serde::Deserialize;
 #[template(path = "home.html", escape = "none")]
 pub(crate) struct Homepage {
 	pub(crate) title: Option<String>,
+	pub(crate) favicon: Option<String>,
 	pub(crate) theme: &'static str,
 	pub(crate) clock: Option<Clock>,
 	pub(crate) search_engine: Option<String>,
@@ -57,6 +58,7 @@ impl Homepage {
 
 		Self {
 			title: config.title.clone(),
+			favicon: config.favicon.clone(),
 			theme,
 			clock: config.clock.clone(),
 			search_engine: config.search_engine.clone(),
