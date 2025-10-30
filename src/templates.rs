@@ -33,8 +33,12 @@ impl Homepage {
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
 				"catppuccin-latte" | "catppuccin_latte" | "latte" => &CATPPUCCIN_LATTE,
-				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => &CATPPUCCIN_FRAPPE,
-				"catppuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => &CATPPUCCIN_MACCHIATO,
+				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
+					&CATPPUCCIN_FRAPPE
+				}
+				"catppuccin-macchiato" | "catppuccin_macchiato" | "macchiato" => {
+					&CATPPUCCIN_MACCHIATO
+				}
 				"catppuccin-mocha" | "catppuccin_mocha" | "mocha" => &CATPPUCCIN_MOCHA,
 				"dracula" => &DRACULA_DEFAULT,
 				"alucard" => &DRACULA_ALUCARD,
