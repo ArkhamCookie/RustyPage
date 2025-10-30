@@ -3,6 +3,7 @@ use crate::config::get_config;
 use crate::templates::Homepage;
 
 use std::fs;
+use std::io;
 use std::process::exit;
 
 use clap::Parser;
@@ -23,11 +24,9 @@ fn main() {
 
 	let _ = match fs::write(output_path, rendered) {
 		Ok(output) => output,
-		Err(error) => match error.kind() {
-			_ => {
-				eprintln!("ERROR: {}", error);
-				exit(1);
-			},
-		},
+		Err(error) => {
+			eprintln!("ERROR: {}", error.kind());
+			exit(1);
+		}
 	};
 }
