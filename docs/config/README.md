@@ -7,6 +7,7 @@ This program using the [directories crate](https://docs.rs/directories/latest/di
 
 ```toml
 title = "RustyPage" # Sets the title in the head (this is what shows on the tab)
+favicon = "" # Put in your favicon's info here.  I recommend using favicon.cc to get or create one; you can just copy all the info after `base64,` in the href section.
 theme = "Frappe" # Select the Catppuccin Frappe theme for the color scheme
 search_engine = "https://duckduckgo.com/?q=%q" # Optional search bar engine (replaces the '%q' with the query)
 footer = true # Enable/disable footer
