@@ -11,6 +11,7 @@ use serde::Deserialize;
 #[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct Config {
 	pub(crate) title: Option<String>,
+	pub(crate) favicon: Option<String>,
 	pub(crate) theme: Option<String>,
 	pub(crate) clock: Option<Clock>,
 	pub(crate) search_engine: Option<String>,
@@ -149,7 +150,6 @@ mod tests {
 		assert_eq!(want, got)
 	}
 
-
 	/// Test parsing a single bookmark without a shortcut
 	#[test]
 	fn parse_bookmark_without_shortcut() {
@@ -225,6 +225,9 @@ mod tests {
 		];
 		let want = Config {
 			title: Some(String::from("ArkhamCookie's Homepage")),
+			favicon: Some(String::from(
+				"AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADxxwAA8ccAAPHHAADwBwAA8AcAAOADAADwBwAA+A8AAPwfAAD+PwAA/38AAP//AAD//wAA",
+			)),
 			theme: Some(String::from("catppuccin")),
 			clock: Some(wanted_clock),
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
