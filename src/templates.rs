@@ -25,12 +25,6 @@ pub(crate) struct Homepage {
 impl Homepage {
 	/// Create Homepage with a given config
 	pub(crate) fn new(config: &Config) -> Self {
-		let converted_bookmarks;
-		if let Some(bookmarks) = &config.bookmarks {
-			converted_bookmarks = Some(ParsedBookmark::convert_all(bookmarks));
-		} else {
-			converted_bookmarks = None;
-		}
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
 				"catppuccin-latte" | "catppuccin_latte" | "latte" => &CATPPUCCIN_LATTE,
@@ -51,10 +45,18 @@ impl Homepage {
 			},
 			None => "",
 		};
+
 		let footer = match &config.footer {
 			Some(footer) => *footer,
 			None => true,
 		};
+
+		let converted_bookmarks;
+		if let Some(bookmarks) = &config.bookmarks {
+			converted_bookmarks = Some(ParsedBookmark::convert_all(bookmarks));
+		} else {
+			converted_bookmarks = None;
+		}
 
 		Self {
 			title: config.title.clone(),
