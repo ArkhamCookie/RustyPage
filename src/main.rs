@@ -1,9 +1,8 @@
-use crate::cli::Args;
+use crate::cli::{Args, get_path};
 use crate::config::get_config;
 use crate::templates::Homepage;
 
 use std::fs;
-use std::path::PathBuf;
 use std::process::exit;
 
 use clap::Parser;
@@ -15,22 +14,24 @@ mod themes;
 
 fn main() {
 	let args = Args::parse();
+
 	let config = get_config(&args);
 	let homepage = Homepage::new(&config);
-	let rendered = Homepage::render(&homepage).expect("error rendering template");
+	let rendered = match Homepage::render(&homepage) {
+		Ok(rendered) => rendered,
+		Err(error) => {
+			eprintln!("ERROR: {}", error);
+			exit(1);
+		}
+	};
 
-	let mut output_path = &PathBuf::from("./index.html");
-	if let Some(path) = &args.output_file {
-		output_path = path;
-	}
+	let output_path = get_path(&args.output_file);
 
-	let output = match fs::write(output_path, rendered) {
+	let _ = match fs::write(output_path, rendered) {
 		Ok(output) => output,
-		Err(error) => match error.kind() {
-			_ => {
-				eprintln!("ERROR: {}", error);
-				exit(1);
-			},
-		},
+		Err(error) => {
+			eprintln!("ERROR: {}", error.kind());
+			exit(1);
+		}
 	};
 }

@@ -2,6 +2,7 @@ use crate::cli::Args;
 
 use std::fs;
 use std::path::PathBuf;
+use std::process::exit;
 
 use directories::ProjectDirs;
 
@@ -88,11 +89,22 @@ pub(crate) fn get_config(args: &Args) -> Config {
 
 /// Get config from config directory file (creates one if needed)
 fn get_config_from_dirs() -> Config {
-	let project_dirs = ProjectDirs::from("com", "arkhamcookie", "rustypage")
-		.expect("error couldn't get project directory");
+	let project_dirs = match ProjectDirs::from("com", "arkhamcookie", "rustypage") {
+		Some(project_dirs) => project_dirs,
+		None => {
+			eprintln!("ERROR: Project directories not found (ProjectDirs crate issue).");
+			exit(1);
+		}
+	};
 	let config_dirs = project_dirs.config_dir();
 
-	fs::create_dir_all(&config_dirs).expect("error creating config directories");
+	let _ = match fs::create_dir_all(&config_dirs) {
+		Ok(result) => result,
+		Err(error) => {
+			eprintln!("ERROR: {}", error);
+			exit(1);
+		}
+	};
 
 	let config_path = &config_dirs.join("config.toml");
 
@@ -111,7 +123,13 @@ name = \"ArkhamCookie\"
 	);
 
 	if !config_path.exists() {
-		fs::write(&config_path, default_toml).expect("error couldn't create default config file");
+		let _ = match fs::write(&config_path, default_toml) {
+			Ok(result) => result,
+			Err(error) => {
+				eprintln!("ERROR: {}", error);
+				exit(1);
+			}
+		};
 	}
 
 	get_config_from_file(&config_path)
@@ -119,9 +137,21 @@ name = \"ArkhamCookie\"
 
 /// Get config from a given file
 fn get_config_from_file(config_file: &PathBuf) -> Config {
-	let toml_string = fs::read_to_string(config_file).expect("Error reading file");
+	let toml_string = match fs::read_to_string(config_file) {
+		Ok(toml_string) => toml_string,
+		Err(error) => {
+			eprintln!("ERROR: {}", error);
+			exit(1)
+		}
+	};
 
-	toml::from_str(&toml_string).expect("Error parsing config file")
+	match toml::from_str(&toml_string) {
+		Ok(config) => config,
+		Err(error) => {
+			eprintln!("ERROR: {}", error);
+			exit(1);
+		}
+	}
 }
 
 #[cfg(test)]
