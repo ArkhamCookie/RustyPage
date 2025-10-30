@@ -3,7 +3,6 @@ use crate::config::get_config;
 use crate::templates::Homepage;
 
 use std::fs;
-use std::io;
 use std::process::exit;
 
 use clap::Parser;
