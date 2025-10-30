@@ -4,6 +4,7 @@ use crate::templates::Homepage;
 
 use std::fs;
 use std::path::PathBuf;
+use std::process::exit;
 
 use clap::Parser;
 
@@ -23,5 +24,13 @@ fn main() {
 		output_path = path;
 	}
 
-	fs::write(output_path, rendered).expect("error couldn't create RustyPage file");
+	let output = match fs::write(output_path, rendered) {
+		Ok(output) => output,
+		Err(error) => match error.kind() {
+			_ => {
+				eprintln!("ERROR: {}", error);
+				exit(1);
+			},
+		},
+	};
 }
