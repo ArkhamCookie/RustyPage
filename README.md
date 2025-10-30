@@ -27,4 +27,4 @@ For a list of themes, go to the [themes documentation](/docs/themes.md).
 
 ## Attributions
 
-- Search icon SVG by [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
+- Search icon SVG from [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
