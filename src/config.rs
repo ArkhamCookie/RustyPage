@@ -37,7 +37,7 @@ pub(crate) struct Bookmark {
 /// Bookmark from Config after being parsed
 #[derive(Debug, Deserialize, PartialEq)]
 pub(crate) struct ParsedBookmark {
-	pub(crate) id: String,
+	pub(crate) id: u32,
 	pub(crate) link: String,
 	pub(crate) name: String,
 	pub(crate) shortcut: String,
@@ -45,7 +45,7 @@ pub(crate) struct ParsedBookmark {
 
 impl ParsedBookmark {
 	/// Convert a Bookmark into a ParsedBookmark
-	fn parse(bookmark: &Bookmark, id: i32) -> Self {
+	fn parse(bookmark: &Bookmark, id: u32) -> Self {
 		let parsed_shortcut: String;
 
 		if let Some(shortcut) = &bookmark.shortcut {
@@ -55,7 +55,7 @@ impl ParsedBookmark {
 		}
 
 		Self {
-			id: format!("bookmark-{}", id),
+			id,
 			link: bookmark.link.clone(),
 			name: bookmark.name.clone(),
 			shortcut: parsed_shortcut,
