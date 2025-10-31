@@ -6,7 +6,7 @@ use clap::Parser;
 #[derive(Clone, Parser)]
 pub(crate) struct Args {
 	/// Manually set the config file used to create RustyHome
-	#[arg(short, long="config")]
+	#[arg(short, long = "config")]
 	pub(crate) config_file: Option<PathBuf>,
 
 	/// Set where you want the output file to be
