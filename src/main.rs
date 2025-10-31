@@ -5,7 +5,7 @@ use crate::templates::Homepage;
 use std::fs;
 use std::process::exit;
 
-use clap::Parser;
+use clap::{Parser, crate_authors, crate_description, crate_name, crate_version};
 
 mod cli;
 mod config;
@@ -14,6 +14,14 @@ mod themes;
 
 fn main() {
 	let args = Args::parse();
+
+	if args.version {
+		println!("{}: v{}", crate_name!(), crate_version!());
+		println!("{}", crate_authors!());
+		println!("\n{}", crate_description!());
+
+		exit(0);
+	}
 
 	let config = get_config(&args);
 	let homepage = Homepage::new(&config);

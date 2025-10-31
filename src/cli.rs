@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use clap::Parser;
+use clap::{ArgAction, Parser};
 
 /// Commandline arguments for RustyPage
 #[derive(Clone, Parser)]
@@ -11,6 +11,10 @@ pub(crate) struct Args {
 
 	/// Set where you want the output file to be
 	pub(crate) output_file: Option<PathBuf>,
+
+	/// Print version and exit
+	#[arg(short = 'V', long, action = ArgAction::SetTrue)]
+	pub(crate) version: bool,
 }
 
 pub(crate) fn get_path(path_arg: &Option<PathBuf>) -> PathBuf {
