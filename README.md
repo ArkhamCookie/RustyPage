@@ -2,6 +2,8 @@
 
 RustyPage is a simple startpage configurable with a simple [TOML](https://toml.io/) file.
 
+You can see a live example with all the features enabled on this repo's [GitHub Page](https://arkhamcookie.github.io/RustyPage/).
+
 ## Features
 
 ### Bookmarks
