@@ -18,6 +18,7 @@ pub(crate) struct Config {
 	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: Option<bool>,
 	pub(crate) bookmarks: Option<Vec<Bookmark>>,
+	pub(crate) bookmark_groups: Option<usize>,
 }
 
 /// Clock from Config
@@ -263,6 +264,7 @@ mod tests {
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
 			footer: Some(true),
 			bookmarks: Some(want_bookmarks),
+			bookmark_groups: 2,
 		};
 		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
 
