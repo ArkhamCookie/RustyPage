@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Build RustyPage
+    # Checkout
     - name: Build
       uses: actions/checkout@v4
 
