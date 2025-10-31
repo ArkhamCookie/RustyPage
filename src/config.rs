@@ -164,7 +164,7 @@ mod tests {
 	#[test]
 	fn parse_bookmark_with_shortcut() {
 		let want = ParsedBookmark {
-			id: String::from("bookmark-0"),
+			id: 0,
 			link: String::from("https://github.com"),
 			name: String::from("GitHub"),
 			shortcut: String::from("g"),
@@ -184,7 +184,7 @@ mod tests {
 	#[test]
 	fn parse_bookmark_without_shortcut() {
 		let want = ParsedBookmark {
-			id: String::from("bookmark-0"),
+			id: 0,
 			link: String::from("https://arkhamcookie.com"),
 			name: String::from("ArkhamCookie"),
 			shortcut: String::from(""),
@@ -206,13 +206,13 @@ mod tests {
 		let want = vec![
 			ParsedBookmark {
 				link: String::from("https://github.com"),
-				id: String::from("bookmark-0"),
+				id: 0,
 				name: String::from("GitHub"),
 				shortcut: String::from("g"),
 			},
 			ParsedBookmark {
 				link: String::from("https://arkhamcookie.com"),
-				id: String::from("bookmark-1"),
+				id: 1,
 				name: String::from("ArkhamCookie"),
 				shortcut: String::from(""),
 			},
