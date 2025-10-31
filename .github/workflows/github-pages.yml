@@ -20,13 +20,15 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
+  name: github-pages
+  url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout
+    # Build RustyPage
     - name: Build
       uses: actions/checkout@v4
 
