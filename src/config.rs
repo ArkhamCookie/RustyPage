@@ -302,7 +302,7 @@ mod tests {
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
 			footer: Some(true),
 			bookmarks: Some(want_bookmarks),
-			bookmark_groups: Some(2),
+			bookmark_groups: Some(4),
 		};
 		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
 
