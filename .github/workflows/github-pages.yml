@@ -20,11 +20,13 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
-  name: github-pages
-  url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
