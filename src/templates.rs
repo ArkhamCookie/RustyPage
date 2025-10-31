@@ -20,6 +20,7 @@ pub(crate) struct Homepage {
 	pub(crate) search_engine: Option<String>,
 	pub(crate) footer: bool,
 	pub(crate) bookmarks: Option<Vec<ParsedBookmark>>,
+	pub(crate) bookmark_groups: Option<u32>,
 }
 
 impl Homepage {
@@ -69,10 +70,20 @@ impl Homepage {
 		};
 
 		let converted_bookmarks;
+		let bookmark_groups;
 		if let Some(bookmarks) = &config.bookmarks {
-			converted_bookmarks = Some(ParsedBookmark::convert_all(bookmarks));
+			let converted = ParsedBookmark::convert_all(bookmarks);
+
+			if let Some(group_amount) = &config.bookmark_groups {
+				bookmark_groups = Some(ParsedBookmark::get_group_amount(&converted, *group_amount));
+			} else {
+				bookmark_groups = None;
+			}
+
+			converted_bookmarks = Some(converted);
 		} else {
 			converted_bookmarks = None;
+			bookmark_groups = None;
 		}
 
 		Self {
@@ -83,6 +94,7 @@ impl Homepage {
 			search_engine: config.search_engine.clone(),
 			footer,
 			bookmarks: converted_bookmarks,
+			bookmark_groups,
 		}
 	}
 
