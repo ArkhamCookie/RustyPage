@@ -24,7 +24,7 @@ env:
   url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
