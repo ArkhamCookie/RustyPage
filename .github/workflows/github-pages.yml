@@ -41,7 +41,7 @@ jobs:
       run: cargo install --path .
 
     # Build static page
-    - name: Build Start Page
+    - name: Build Startpage
       run: rustypage --config-file ./docs/config/examples/full.toml ./public/index.html
 
     # Setup Pages
