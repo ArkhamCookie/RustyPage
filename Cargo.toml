@@ -2,6 +2,11 @@
 name = "RustyPage"
 version = "0.1.0"
 edition = "2024"
+license = "APGL-3.0-or-later"
+authors = ["ArkhamCookie <cargo@mail.arkhamcookie.com>"]
+description = "RustyPage is a simple startpage configurable with a simple TOML file."
+repository = "https://github.com/ArkhamCookie/RustyPage"
+readme = "README.md"
 
 [dependencies]
 askama = "0.14.0"
