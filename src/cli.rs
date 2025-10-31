@@ -19,7 +19,7 @@ pub(crate) fn get_path(path_arg: &Option<PathBuf>) -> PathBuf {
 			let mut path_dir = path.clone();
 			path_dir.push("index.html");
 
-			return path_dir
+			return path_dir;
 		}
 		return path.to_path_buf();
 	}
