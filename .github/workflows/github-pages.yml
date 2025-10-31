@@ -3,8 +3,6 @@ name: GitHub Pages
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 # Permissions needed for deployment to GitHub Pages
 permissions:
