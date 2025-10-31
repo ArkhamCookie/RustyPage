@@ -77,6 +77,24 @@ impl ParsedBookmark {
 
 		return parsed_bookmarks;
 	}
+
+	pub(crate) fn get_group_amount(bookmarks: &Vec<Self>, group_amount: usize) -> u32 {
+		let bookmark_count = bookmarks.len() as i32;
+		let group_amount = group_amount as i32;
+		let mut new_group_amount = group_amount;
+
+		if bookmark_count - &group_amount < 0 {
+			while bookmark_count - new_group_amount < 0 {
+				new_group_amount -= 1;
+			}
+
+			println!("WARNING: Group amount is too big; new group amount is {}.", new_group_amount);
+		}
+
+		if bookmark_count % group_amount == 0 {}
+
+		return new_group_amount as u32;
+	}
 }
 
 /// Get config file either from config file arg or from config directory
@@ -236,6 +254,26 @@ mod tests {
 		assert_eq!(want, got)
 	}
 
+	#[test]
+	fn group_amount_test() {
+		let bookmarks = vec![
+			ParsedBookmark {
+				link: String::from("https://github.com"),
+				id: 0,
+				name: String::from("GitHub"),
+				shortcut: String::from("g"),
+			},
+			ParsedBookmark {
+				link: String::from("https://arkhamcookie.com"),
+				id: 1,
+				name: String::from("ArkhamCookie"),
+				shortcut: String::from(""),
+			},
+		];
+
+		ParsedBookmark::get_group_amount(&bookmarks, 2);
+	}
+
 	/// Test that config matches what we want
 	#[test]
 	fn get_full_config() {
@@ -264,7 +302,7 @@ mod tests {
 			search_engine: Some(String::from("https://duckduckgo.com/?q=%q")),
 			footer: Some(true),
 			bookmarks: Some(want_bookmarks),
-			bookmark_groups: 2,
+			bookmark_groups: Some(2),
 		};
 		let got = get_config_from_file(&PathBuf::from("./docs/config/examples/full.toml"));
 
