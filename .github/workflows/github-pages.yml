@@ -32,10 +32,6 @@ jobs:
     - name: Build
       uses: actions/checkout@v4
 
-    # Install Rust toolchain
-    - name: Install stable Rust toolchain
-      uses: dtolnay/rust-toolchain@stable
-
     # Install RustyPage
     - name: Install RustyPage
       run: cargo install --path .
