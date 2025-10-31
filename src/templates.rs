@@ -30,9 +30,15 @@ impl Homepage {
 			let filtered_favicon = &favicon_input.as_str();
 
 			if filtered_favicon.starts_with("http") {
-				favicon = format!("<link href=\"{}\" rel=\"icon\" type=\"image/x-icon\">", favicon_input);
+				favicon = format!(
+					"<link href=\"{}\" rel=\"icon\" type=\"image/x-icon\">",
+					favicon_input
+				);
 			} else {
-				favicon = format!("<link href=\"data:image/x-icon;base64,{}\" rel=\"icon\" type=\"image/x-icon\">", favicon_input);
+				favicon = format!(
+					"<link href=\"data:image/x-icon;base64,{}\" rel=\"icon\" type=\"image/x-icon\">",
+					favicon_input
+				);
 			}
 		}
 
