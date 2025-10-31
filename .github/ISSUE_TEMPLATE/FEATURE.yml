@@ -1,0 +1,60 @@
+name: Feature Request
+description: Request a feature
+title: "[FEAT]: "
+labels:
+  - "enhancement"
+  - "pending review"
+# projects:
+# assignees:
+
+body:
+- type: checkboxes
+  id: prerequisites
+  attributes:
+    label: Prerequisites
+    description: Please make sure you have done all of the following.
+    options:
+      - label: I agree to follow the [Code of Conduct](https://github.com/ArkhamCookie/.github/blob/main/docs/CODE_OF_CONDUCT.md)
+        required: true
+      - label: This is **not** a support question/issue. See [asking for help](https://github.com/ArkhamCookie/RustyPage/blob/main/docs/SUPPORT.md)*
+        required: true
+      - label: This is **not** a security vulnerability. *See [security policy](https://github.com/ArkhamCookie/.github/blob/main/docs/SECURITY.md)*
+        required: true
+      - label: I have searched for [existing issues](https://github.com/ArkhamCookie/RustyPage/issues) that already report this problem, without success.
+        required: true
+
+- type: textarea
+  attributes:
+    label: Describe the Feature Request
+    description: A clear and concise description of what the feature does.
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: Is this feature realted to a problem?
+    value: "No"
+- type: textarea
+  attributes:
+    label: Describe the Use Case
+    description: A clear and concise use case for this feature.
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: I would be willing to help implement this feature. (Not required)
+    options:
+      - label: "Yes"
+        required: false
+- type: textarea
+  attributes:
+    label: Anything else?
+    description: List any other information relevant to your idea.
+- type: markdown
+  attributes:
+    value: |
+      - Related issues
+      - Suggestions on how to implement
+      - External Links
+      - etc.
