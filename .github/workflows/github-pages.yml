@@ -30,7 +30,7 @@ jobs:
     steps:
     # Checkout
     - name: Build
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     # Make needed directory
     - name: Make public directory
