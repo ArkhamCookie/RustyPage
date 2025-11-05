@@ -1,0 +1,5 @@
+# Clock only
+
+[clock] # Enables clock
+twelve_hour = true # Makes clock use AM/PM
+

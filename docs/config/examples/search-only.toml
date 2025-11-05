@@ -1,0 +1,3 @@
+# Search bar only
+
+search_engine = "https://duckduckgo.com/q=%q" # Uses DDG
