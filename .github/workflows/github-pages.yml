@@ -42,7 +42,7 @@ jobs:
 
     # Build static page
     - name: Build Startpage
-      run: rustypage --config-file ./docs/config/examples/full.toml ./public/index.html
+      run: rustypage --config ./docs/config/examples/full.toml ./public/index.html
 
     # Setup Pages
     - name: Setup Pages
