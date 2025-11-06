@@ -31,6 +31,7 @@ pub(crate) struct Clock {
 pub(crate) struct Bookmark {
 	pub(crate) link: String,
 	pub(crate) name: String,
+	pub(crate) group: Option<i32>,
 	pub(crate) shortcut: Option<String>,
 }
 
@@ -40,6 +41,7 @@ pub(crate) struct ParsedBookmark {
 	pub(crate) id: String,
 	pub(crate) link: String,
 	pub(crate) name: String,
+	pub(crate) group: i32,
 	pub(crate) shortcut: String,
 }
 
@@ -47,6 +49,13 @@ impl ParsedBookmark {
 	/// Convert a Bookmark into a ParsedBookmark
 	fn parse(bookmark: &Bookmark, id: i32) -> Self {
 		let parsed_shortcut: String;
+		let parsed_group: i32;
+
+		if let Some(group) = &bookmark.group {
+			parsed_group = group.clone();
+		} else {
+			parsed_group = -1;
+		}
 
 		if let Some(shortcut) = &bookmark.shortcut {
 			parsed_shortcut = shortcut.clone();
@@ -58,6 +67,7 @@ impl ParsedBookmark {
 			id: format!("bookmark-{}", id),
 			link: bookmark.link.clone(),
 			name: bookmark.name.clone(),
+			group: parsed_group,
 			shortcut: parsed_shortcut,
 		}
 	}
@@ -167,12 +177,14 @@ mod tests {
 			id: String::from("bookmark-0"),
 			link: String::from("https://github.com"),
 			name: String::from("GitHub"),
+			group: -1,
 			shortcut: String::from("g"),
 		};
 
 		let bookmark = Bookmark {
 			link: String::from("https://github.com"),
 			name: String::from("GitHub"),
+			group: Some(-1),
 			shortcut: Some(String::from("g")),
 		};
 		let got = ParsedBookmark::parse(&bookmark, 0);
@@ -187,12 +199,14 @@ mod tests {
 			id: String::from("bookmark-0"),
 			link: String::from("https://arkhamcookie.com"),
 			name: String::from("ArkhamCookie"),
+			group: -1,
 			shortcut: String::from(""),
 		};
 
 		let bookmark = Bookmark {
 			link: String::from("https://arkhamcookie.com"),
 			name: String::from("ArkhamCookie"),
+			group: None,
 			shortcut: None,
 		};
 		let got = ParsedBookmark::parse(&bookmark, 0);
@@ -208,12 +222,14 @@ mod tests {
 				link: String::from("https://github.com"),
 				id: String::from("bookmark-0"),
 				name: String::from("GitHub"),
+				group: -1,
 				shortcut: String::from("g"),
 			},
 			ParsedBookmark {
 				link: String::from("https://arkhamcookie.com"),
 				id: String::from("bookmark-1"),
 				name: String::from("ArkhamCookie"),
+				group: -1,
 				shortcut: String::from(""),
 			},
 		];
@@ -222,11 +238,13 @@ mod tests {
 			Bookmark {
 				link: String::from("https://github.com"),
 				name: String::from("GitHub"),
+				group: Some(-1),
 				shortcut: Some(String::from("g")),
 			},
 			Bookmark {
 				link: String::from("https://arkhamcookie.com"),
 				name: String::from("ArkhamCookie"),
+				group: Some(-1),
 				shortcut: None,
 			},
 		];
@@ -245,11 +263,13 @@ mod tests {
 			Bookmark {
 				link: String::from("https://github.com"),
 				name: String::from("GitHub"),
+				group: None,
 				shortcut: Some(String::from("g")),
 			},
 			Bookmark {
 				link: String::from("https://arkhamcookie.com"),
 				name: String::from("ArkhamCookie"),
+				group: None,
 				shortcut: None,
 			},
 		];
