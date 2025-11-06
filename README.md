@@ -34,5 +34,5 @@ For a list of themes, go to the [themes documentation](/docs/themes.md).
 ## Attributions
 
 - [Default Favicon](https://www.favicon.cc/?action=icon&file_id=1020563) by [Maria](https://www.favicon.cc/?action=icon_list&user_id=697891)
-- [Alterative Default Favicon] (used in [`/docs/config/examples/full.toml`](/docs/config/examples/full.toml)) by [sookylala](https://www.favicon.cc/?action=icon_list&user_id=695250)
+- [Alterative Default Favicon](https://www.favicon.cc/?action=icon&file_id=1019015) (used in [`/docs/config/examples/full.toml`](/docs/config/examples/full.toml)) by [sookylala](https://www.favicon.cc/?action=icon_list&user_id=695250)
 - Search icon SVG from [Dazzle Ui](https://dazzleui.gumroad.com/l/dazzleiconsfree)
