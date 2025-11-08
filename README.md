@@ -25,12 +25,6 @@ RustyPage has an optional theme selection.
 
 For a list of themes, go to the [themes documentation](/docs/themes.md).
 
-## Future Features
-
-- Fetch Favicons/Icons?
-- Folders/Sections?
-- More Themes
-
 ## Attributions
 
 - [Default Favicon](https://www.favicon.cc/?action=icon&file_id=1020563) by [Maria](https://www.favicon.cc/?action=icon_list&user_id=697891)
