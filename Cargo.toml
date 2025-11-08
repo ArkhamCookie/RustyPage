@@ -2,7 +2,7 @@
 name = "RustyPage"
 version = "1.0.0"
 edition = "2024"
-license = "APGL-3.0-or-later"
+license = "AGPL-3.0-or-later"
 authors = ["ArkhamCookie <cargo@mail.arkhamcookie.com>"]
 description = "RustyPage is a simple startpage configurable with a simple TOML file."
 homepage = "https://arkhamcookie.github.io/RustyPage/"
