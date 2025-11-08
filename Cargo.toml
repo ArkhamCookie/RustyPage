@@ -9,6 +9,7 @@ homepage = "https://arkhamcookie.github.io/RustyPage/"
 repository = "https://github.com/ArkhamCookie/RustyPage"
 readme = "README.md"
 keywords = ["homepage", "startpage", "site"]
+exclude = [".github/"]
 
 [dependencies]
 askama = "0.14.0"
