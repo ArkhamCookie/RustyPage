@@ -1,0 +1,36 @@
+name: Support Question
+description: Create an issue about a support question you have.
+title: "[HELP]: "
+labels:
+assigness: "ArkhamCookie"
+
+body:
+- type: checkboxes
+  id: prerequisites
+  attributes:
+    label: Prerequisites
+    description: Please make sure you have done all of the following.
+    options:
+      - label: I agree to follow the [Code of Conduct](https://github.com/ArkhamCookie/.github/blob/main/docs/CODE_OF_CONDUCT.md)
+        required: true
+      - label: This is **is** a support question/issue.
+        required: true
+      - label: This is **not** a security vulnerability. *See [security policy](https://github.com/ArkhamCookie/.github/blob/main/docs/SECURITY.md)*
+        required: true
+      - label: I have searched for [existing issues](https://github.com/ArkhamCookie/RustyPage/issues) that already report this problem, without success.
+        required: true
+
+- type:
+  attributes:
+    label: Current Behavior
+    description: What is happening that you need help with?
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Steps to Reproduce
+    description: Steps to Reproduce
+    placeholder: |
+      1.
+      2.
+      3.
