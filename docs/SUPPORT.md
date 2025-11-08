@@ -5,7 +5,8 @@
 > While I am happy to help when I can,
 > please remember I do this for free and you aren't "owed" support.
 
-*I still need to write this...*
+Please fill out a Support Question issue in the GitHub repo for help.
+I will do my best to response when I can.
 
 ---
 
