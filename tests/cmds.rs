@@ -9,12 +9,14 @@ mod tests {
 	use clap::crate_version;
 
 	#[test]
+	/// Test that cargo command (rustypage) runs.
 	fn basic_cmd_test() {
 		let mut command = cargo_bin_cmd!("rustypage");
 		let _ = command.unwrap();
 	}
 
 	#[test]
+	/// Test getting the version of rustypage.
 	fn version_test() {
 		let mut command = cargo_bin_cmd!("rustypage");
 		let output = command
