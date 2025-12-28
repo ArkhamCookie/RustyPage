@@ -2,6 +2,8 @@
 
 #[cfg(test)]
 mod tests {
+	use std::default::Default;
+	use std::process::ExitStatus;
 	use std::str;
 
 	use assert_cmd::cargo::cargo_bin_cmd;
@@ -34,6 +36,15 @@ RustyPage is a simple startpage configurable with a simple TOML file.
 		);
 
 		assert_eq!(string_output, expected)
+	}
+
+	#[test]
+	/// Test the exit status of base command.
+	fn exit_status_test() {
+		let mut command = cargo_bin_cmd!("rustypage");
+		let output = command.unwrap();
+
+		assert_eq!(output.status, <ExitStatus as Default>::default())
 	}
 }
 
