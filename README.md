@@ -33,6 +33,16 @@ For a list of themes, go to the [themes documentation](/docs/themes.md).
 cargo install RustyPage
 ```
 
+### From Source
+
+```shell
+cargo install --path . --locked
+```
+
+> [!NOTE]
+> The `--path .` above specifies the directory of the source code and NOT where `rustypage` will be installed.
+> For more information see the docs for [`cargo install`](https://doc.rust-lang.org/cargo/commands/cargo-install.html).
+
 ## Attributions
 
 - [Default Favicon](https://www.favicon.cc/?action=icon&file_id=1020563) by [Maria](https://www.favicon.cc/?action=icon_list&user_id=697891)
