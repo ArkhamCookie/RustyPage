@@ -60,7 +60,7 @@ impl Homepage {
 					&DEFAULT
 				}
 			},
-			None => "",
+			None => &DEFAULT,
 		};
 
 		let footer = match &config.footer {
