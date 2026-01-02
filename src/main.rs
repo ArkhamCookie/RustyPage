@@ -28,6 +28,7 @@ fn main() {
 
 	let config = get_config(&args);
 	let homepage = Homepage::new(&config);
+	#[allow(unused_mut)] // Mut needed if minify is enabled
 	let mut rendered = match Homepage::render(&homepage) {
 		Ok(rendered) => rendered,
 		Err(error) => {
