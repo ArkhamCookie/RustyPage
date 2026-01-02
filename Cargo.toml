@@ -27,5 +27,6 @@ name = "rustypage"
 path = "src/main.rs"
 
 [features]
+default = []
 minify = ["dep:minify-html"]
 
