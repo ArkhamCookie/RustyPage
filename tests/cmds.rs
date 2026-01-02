@@ -3,6 +3,8 @@
 #[cfg(test)]
 mod tests {
 	use std::default::Default;
+	use std::fs;
+	use std::path::PathBuf;
 	use std::process::ExitStatus;
 	use std::str;
 
@@ -10,11 +12,23 @@ mod tests {
 
 	use clap::crate_version;
 
+	/// Removes output of rustypage
+	fn clean(path: &str) {
+		let path: PathBuf = path.into();
+		let result = fs::remove_file(path);
+
+		if result.is_err() {
+			println!("`./index.html` not found. Continuing...")
+		}
+	}
+
 	#[test]
 	/// Test that cargo command (rustypage) runs.
 	fn basic_cmd_test() {
 		let mut command = cargo_bin_cmd!("rustypage");
 		let _ = command.unwrap();
+
+		clean("./index.html");
 	}
 
 	#[test]
@@ -44,7 +58,9 @@ RustyPage is a simple startpage configurable with a simple TOML file.
 		let mut command = cargo_bin_cmd!("rustypage");
 		let output = command.unwrap();
 
-		assert_eq!(output.status, <ExitStatus as Default>::default())
+		assert_eq!(output.status, <ExitStatus as Default>::default());
+
+		clean("./index.html");
 	}
 }
 
