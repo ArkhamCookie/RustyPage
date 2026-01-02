@@ -12,7 +12,7 @@ keywords = ["homepage", "startpage", "site"]
 exclude = [".github/"]
 
 [dependencies]
-askama = "0.14.0"
+askama = "0.15.1"
 clap = { version = "4.5.53", features = ["cargo", "derive"] }
 directories = "6.0.0"
 serde = { version = "1.0.228", features = ["derive"] }
