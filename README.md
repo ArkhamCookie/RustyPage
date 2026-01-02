@@ -27,11 +27,21 @@ For a list of themes, go to the [themes documentation](/docs/themes.md).
 
 ## Installing
 
-### With `cargo`
+### From `crates.io` (Recommended)
 
 ```shell
 cargo install RustyPage
 ```
+
+### From Source
+
+```shell
+cargo install --path . --locked
+```
+
+> [!NOTE]
+> The `--path .` above specifies the directory of the source code and NOT where `rustypage` will be installed.
+> For more information see the docs for [`cargo install`](https://doc.rust-lang.org/cargo/commands/cargo-install.html).
 
 ## Attributions
 
