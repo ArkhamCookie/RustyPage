@@ -7,6 +7,9 @@ use std::process::exit;
 
 use clap::{Parser, crate_authors, crate_description, crate_name, crate_version};
 
+#[cfg(feature = "minify")]
+use minify_html::{Cfg, minify};
+
 mod cli;
 mod config;
 mod templates;
@@ -25,7 +28,7 @@ fn main() {
 
 	let config = get_config(&args);
 	let homepage = Homepage::new(&config);
-	let rendered = match Homepage::render(&homepage) {
+	let mut rendered = match Homepage::render(&homepage) {
 		Ok(rendered) => rendered,
 		Err(error) => {
 			eprintln!("ERROR: {}", error);
@@ -35,7 +38,12 @@ fn main() {
 
 	#[cfg(feature = "minify")]
 	if args.minify {
-		todo!("minify code using a crate")
+		let mut minify_config = Cfg::new();
+		minify_config.minify_css = true;
+		minify_config.minify_js = true;
+
+		let minified = minify(rendered.as_bytes(), &minify_config);
+		rendered = String::from_utf8(minified).expect("error converting minified html to string");
 	}
 
 	let output_path = get_path(&args.output_file);
