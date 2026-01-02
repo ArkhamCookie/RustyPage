@@ -9,6 +9,11 @@ pub(crate) struct Args {
 	#[arg(short, long = "config")]
 	pub(crate) config_file: Option<PathBuf>,
 
+	#[cfg(feature = "minify")]
+	/// Minify the output
+	#[arg(short, long, action = ArgAction::SetTrue)]
+	pub(crate) minify: bool,
+
 	/// Set where you want the output file to be
 	pub(crate) output_file: Option<PathBuf>,
 
