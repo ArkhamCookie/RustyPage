@@ -33,6 +33,11 @@ fn main() {
 		}
 	};
 
+	#[cfg(feature = "minify")]
+	if args.minify {
+		todo!("minify code using a crate")
+	}
+
 	let output_path = get_path(&args.output_file);
 
 	let _ = match fs::write(output_path, rendered) {
