@@ -35,10 +35,7 @@ mod tests {
 	/// Test getting the version of rustypage.
 	fn version_test() {
 		let mut command = cargo_bin_cmd!("rustypage");
-		let output = command
-			.arg("-V")
-			.unwrap()
-			.stdout;
+		let output = command.arg("-V").unwrap().stdout;
 		let string_output = str::from_utf8(&output).unwrap();
 		let expected = format!(
 			"RustyPage: v{}
@@ -63,4 +60,3 @@ RustyPage is a simple startpage configurable with a simple TOML file.
 		clean("./index.html");
 	}
 }
-
