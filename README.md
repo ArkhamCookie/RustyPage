@@ -27,7 +27,7 @@ For a list of themes, go to the [themes documentation](/docs/themes.md).
 
 ## Installing
 
-### With `cargo`
+### With `cargo` (Recommended)
 
 ```shell
 cargo install RustyPage
