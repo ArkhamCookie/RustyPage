@@ -13,7 +13,7 @@ exclude = [".github/"]
 
 [dependencies]
 askama = "0.15.1"
-clap = { version = "4.5.53", features = ["cargo", "derive"] }
+clap = { version = "4.5.54", features = ["cargo", "derive"] }
 directories = "6.0.0"
 minify-html = { version = "0.18.1", optional = true }
 serde = { version = "1.0.228", features = ["derive"] }
