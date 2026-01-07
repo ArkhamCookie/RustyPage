@@ -200,7 +200,7 @@
 				{% if !bookmark.shortcut.is_empty() %}
 					<script>
 						function handleShortcut(event) {
-							if (event.key === "{{bookmark.shortcut}}") {
+							if (event.key === "{{bookmark.shortcut}}" && document.activeElement.id !== "search-input") {
 								event.preventDefault();
 								window.open("{{bookmark.link}}")
 							}
