@@ -4,6 +4,7 @@ use crate::themes::catppuccin::{
 };
 use crate::themes::default::DEFAULT;
 use crate::themes::dracula::{DRACULA_ALUCARD, DRACULA_DEFAULT};
+use crate::themes::gruvbox::GRUVBOX;
 
 use askama::Template;
 
@@ -54,6 +55,7 @@ impl Homepage {
 				"catppuccin-mocha" | "catppuccin_mocha" | "mocha" => &CATPPUCCIN_MOCHA,
 				"dracula" => &DRACULA_DEFAULT,
 				"alucard" => &DRACULA_ALUCARD,
+				"gruvbox" => &GRUVBOX,
 				"" => &DEFAULT,
 				_ => {
 					eprintln!("WARNING: Unreconized theme in config file!");
