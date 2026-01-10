@@ -16,6 +16,7 @@ theme = "theme_name"
 - [Dracula](https://draculatheme.com)
   - Alucard
   - Dracula
+- [gruvbox](https://github.com/morhetz/gruvbox)
 
 ## Adding a Theme
 
