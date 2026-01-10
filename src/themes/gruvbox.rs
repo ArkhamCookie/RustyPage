@@ -1,3 +1,6 @@
+//! [gruvbox](https://github.com/morhetz/gruvbox) Theme
+
+/// [gruvbox](https://github.com/morhetz/gruvbox) Theme
 pub(crate) const GRUVBOX: &str = "<style>
 		:root {
 			--background: #282828;
