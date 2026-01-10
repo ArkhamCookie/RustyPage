@@ -215,4 +215,23 @@ mod tests {
 
 		assert!(not_different)
 	}
+
+	#[test]
+	/// Test rendering the search only config file
+	fn search_only_config_diff_test() {
+		let config_file_path: PathBuf = "./docs/config/examples/search-only.toml".into();
+		let config = get_config_from_file(&config_file_path);
+
+		let homepage = Homepage::new(&config.expect("error getting config file"));
+
+		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+
+		let mut wanted = File::open("./tests/data/search-only.html").expect("error getting test file");
+		let mut contents = String::new();
+		let _ = wanted.read_to_string(&mut contents);
+
+		let not_different = check_difference(rendered, contents);
+
+		assert!(not_different)
+	}
 }
