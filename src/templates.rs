@@ -93,3 +93,69 @@ impl Homepage {
 		template.render()
 	}
 }
+
+#[cfg(test)]
+mod tests {
+	use crate::config::Config;
+	use crate::templates::Homepage;
+
+	use std::fs::{self, File};
+	use std::io::Read;
+    use std::path::PathBuf;
+
+	use diff;
+
+	/// Check the difference between 2 strings
+	fn check_difference(left: String, right: String) -> bool {
+		let mut not_different = true;
+
+		for difference in diff::lines(&left, &right) {
+			match difference {
+				diff::Result::Left(left) => {
+					not_different = false;
+					println!("l-{}", left);
+				},
+				diff::Result::Right(right) => {
+					not_different = false;
+					println!("r-{}", right);
+				},
+				_ => (),
+			}
+		}
+
+		return not_different;
+	}
+
+	// TODO: Handle error `toml::from_str()`/Result error better
+	/// Get config from a given file
+	fn get_config_from_file(config_file: &PathBuf) -> Result<Config, ()> {
+		let toml_string = fs::read_to_string(&config_file).expect("error getting config file string");
+
+		match toml::from_str(&toml_string) {
+			Ok(config) => Ok(config),
+			Err(error) => {
+				eprintln!("ERROR: {}", error);
+				Err(())
+			},
+		}
+	}
+
+	#[test]
+	/// Test rendering the default config file
+	fn default_config_diff_test() {
+		let config_file_path: PathBuf = "./docs/config/examples/default.toml".into();
+		let config = get_config_from_file(&config_file_path);
+
+		let homepage = Homepage::new(&config.expect("error getting config file"));
+
+		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+
+		let mut wanted = File::open("./tests/data/default.html").expect("error getting test file");
+		let mut contents = String::new();
+		let _ = wanted.read_to_string(&mut contents);
+
+		let not_different = check_difference(rendered, contents);
+
+		assert!(not_different)
+	}
+}
