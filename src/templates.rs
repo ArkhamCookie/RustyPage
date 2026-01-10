@@ -45,6 +45,7 @@ impl Homepage {
 
 		let theme = match &config.theme {
 			Some(theme_name) => match theme_name.to_ascii_lowercase().as_str() {
+				"default" => &DEFAULT,
 				"catppuccin-latte" | "catppuccin_latte" | "latte" => &CATPPUCCIN_LATTE,
 				"catppuccin" | "catppuccin-frappe" | "catppuccin_frappe" | "frappe" => {
 					&CATPPUCCIN_FRAPPE
