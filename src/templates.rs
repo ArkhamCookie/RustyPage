@@ -141,7 +141,7 @@ mod tests {
 	}
 
 	#[test]
-	///
+	/// Test rendering the bookmarks only config file
 	fn bookmarks_only_diff_test() {
 		let config_file_path: PathBuf = "./docs/config/examples/bookmarks-only.toml".into();
 		let config = get_config_from_file(&config_file_path);
