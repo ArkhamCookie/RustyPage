@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+
+	<title>
+		
+			ArkhamCookie's Homepage
+		
+	</title>
+
+	
+		<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAsLBjsXEcI3FQ77NBIM/zIQCv8wDQj/Lg0H/ywKBf8rCgT/KggD/yoIA/8qCAP6LQkEwRgGA00AAAAAHQ4OBDQUDv8zEg3/MRAK/y8PCf8tDAf/KwoF/ygJA/8mBwL/JQYB/yQFAf8kBAD/JAUB/yQFAP8lBQD/IAAABEIeGMQ2FQ//NRMO/zMSDP8xEAv/Lg4I/ywMBv8qCgX/KAgD/yYHAv8lBgH/JQUB/yUFAP8kBQD/JQYB/y0LBcJCHhjhOBYQ/zcVD/81FA3/E33D/wp/1f8LhtL/Co7J/wmQuP8Ilp3/CJiG/wiVd/8kEAr/JQUB/yYFAf8sCQTgRSAZ+zsZEv86FxD/OBUO/w1/4/8ZNJn/IC1+/yUva/8qOFv/Ljc7/zI/Kv8MomX/Hz4e/yYGAf8nBwL/LQoF+kkkHP8/HBX/PhoT/zwZEv8QZ+H/Ixt//zMVWv9WJFP/flBV/z8fGf8/KBD/Hpc3/yhEEv8oCAL/KAgD/y4MBf1PKCD/Qx4X/0MfF/9CHRf/GEnf/y8Wef9GE0//fipQ/6plMP9RJg//RigM/z+WGv8zRw//KwsF/ysLBv8xDgn/Uioi/0ciG/9HIRr/SCId/yIy3P89E3T/bB1e/51DSP+LRyT/ek4K/04qCv9okQr/Sk4L/y8PCf8vDgj/MxEL/1YtJf9KIxz/SiUf/y421f8rIN3/SRFw/7JDpP+aQkf/gkQf/5d1Ev9lQwr/gIwI/4+uBv9VRAv/MhEM/zcVD/9ZMCf/SyQc/00mHv9NJyr/QxzW/1gVoP9bEkD/fi47/4JIIf9eJhD/YzgP/5qWCv96dAv/NhUP/zQUDv86FxH/XDIp/0wlHv9NJR7/TSUe/08mI/96GKj/ghll/1kSJv9VFBn/bSsX/6hsE/91WhH/ORgS/zcXEf83FhD/PBoT/14zK/5NJR7/TSUf/00lH/9OJR//TiYf/64jav+iIy3/eSEd/7FGGv9rPRj/PhwV/zsZE/85GBL/OBcR/z0bFPxfNSzyTSUe/00mH/9NJR//TiYf/00lHv9NJR7/nCoy/700KP9hLR7/Qh8Y/z4cFf87GhP/OhgS/zgYEf8+HBXvZzoxxE0lHv9NJR7/TSYf/00lH/9NJR7/TCUd/0skHf9RJR7/RSAZ/0EeF/8+HBX/OxkT/zkYEv84GBH/QR4XwzghHUpMJR7/TSUd/04mH/9OJh7/TSUe/0skHf9KJBz/RyEa/0QgGf9BHhf/PRsV/zsZE/85GBL/OBgS/yUSAAMAAAAANyIdTmU5McFfNCz7XjMr/1wxKf9ZMCf/Vy0l/1IrIv9OJyD/SiUd/0ciGv9DHxjfQyAZwiMRDVAAAAAAwAMAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAwAMAAA==" rel="icon" type="image/x-icon">
+	
+
+	<style>
+		:root {
+			--background: #303446;
+			--text: #C6D0F5;
+			--link: #8CAAEE;
+			--surface-zero: #414559;
+			--border: #232634;
+		}
+	</style>
+
+	<style>
+		/** Styling */
+		#clock {
+			font-size: 40px;
+		}
+
+		#search-btn,
+		#search-input {
+			border: 3px;
+			border-style: solid;
+		}
+
+		#search-btn {
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+		}
+
+		#search-input {
+			outline: none;
+			border-right: none;
+			border-radius: 5px 0 0 5px;
+		}
+
+		/** Positioning */
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+
+		#clock {
+			padding: 10px;
+		}
+
+		#search-bar {
+			margin-bottom: 3vh;
+		}
+
+		#search-btn {
+			width: 40px;
+			height: 36px;
+			vertical-align: -7px;
+		}
+
+		#search-input {
+			padding: 5px;
+			height: 20px;
+			width: 30vw;
+		}
+
+		/** Coloring */
+		body {
+			background: var(--background);
+			color: var(--text);
+		}
+
+		a {
+			color: var(--link);
+		}
+
+		#search-btn {
+			background-color: var(--border);
+		}
+		#search-btn > i > svg {
+			stroke: var(--surface-zero);
+		}
+
+		#search-input {
+			background-color: var(--surface-zero);
+			color: var(--text);
+		}
+
+		#search-input,
+		#search-btn {
+			border-color: var(--border);
+		}
+	</style>
+</head>
+
+<body>
+	
+		<div id="clock"></div>
+
+		<script>
+			function showTime() {
+				let date = new Date();
+				let hour = date.getHours();
+				let minute = date.getMinutes();
+				let am;
+
+				
+					
+						am = true;
+
+						if (hour > 12) {
+							am = false;
+							hour = hour - 12;
+						}
+					
+				
+
+				if (hour < 10) {
+					hour = "0" + hour;
+				}
+				if (minute < 10) {
+					minute = "0" + minute;
+				}
+
+				if (am === undefined) {
+					am = "";
+				}
+				if (am === true) {
+					am = " AM";
+				}
+				if (am === false) {
+					am = " PM";
+				}
+
+				let time = hour + ":" + minute + am;
+
+				document.getElementById("clock").innerText = time;
+				document.getElementById("clock").textContent = time;
+
+				setTimeout(showTime, 1000);
+			}
+
+			showTime()
+		</script>
+	
+
+	
+		
+			<form id="search-bar">
+				<input id="search-input" placeholder="Search..." autocomplete="off"><button id="search-btn">
+					<i>
+						<!-- From https://dazzleui.gumroad.com/l/dazzleiconsfree -->
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</i>
+				</button>
+			</form>
+			<script>
+				const searchForm = document.querySelector("#search-bar");
+				const searchInput = document.querySelector("#search-input");
+
+				searchForm.addEventListener("submit", (event) => {
+					event.preventDefault();
+
+					const engine = "https://duckduckgo.com/?q=%q";
+					const url = engine.replace("%q", encodeURIComponent(searchInput.value));
+
+					window.open(url);
+				});
+			</script>
+		
+	
+
+	
+		<section id=bookmarks-section>
+			
+				<div class="bookmark" id="bookmark-0">
+					<a href="https://github.com">GitHub</a>
+				</div>
+
+				
+					<script>
+						function handleShortcut(event) {
+							if (event.key === "g" && document.activeElement.id !== "search-input") {
+								event.preventDefault();
+								window.open("https://github.com")
+							}
+						}
+
+						document.addEventListener("keydown", handleShortcut);
+					</script>
+				
+			
+				<div class="bookmark" id="bookmark-1">
+					<a href="https://arkhamcookie.com">ArkhamCookie</a>
+				</div>
+
+				
+			
+		</section>
+	
+
+	
+		<footer>
+			<p><small>Made with <a href="https://github.com/ArkhamCookie/RustyPage">RustyPage</a>.</small></p>
+		</footer>
+	
+</body>
+
+</html>

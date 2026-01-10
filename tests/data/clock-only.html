@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+
+	<title>
+		
+			Homepage
+		
+	</title>
+
+	
+		<link
+			href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADxxwAA8ccAAPHHAADwBwAA8AcAAOADAADwBwAA+A8AAPwfAAD+PwAA/38AAP//AAD//wAA"
+			rel="icon" type="image/x-icon">
+	
+
+	<style>
+		:root {
+			--background: #FFFFFF;
+			--text: #000000;
+			--link: #0000EE;
+			--surface-zero: #FFFFFF;
+			--border: #000000;
+		}
+	</style>
+
+	<style>
+		/** Styling */
+		#clock {
+			font-size: 40px;
+		}
+
+		#search-btn,
+		#search-input {
+			border: 3px;
+			border-style: solid;
+		}
+
+		#search-btn {
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+		}
+
+		#search-input {
+			outline: none;
+			border-right: none;
+			border-radius: 5px 0 0 5px;
+		}
+
+		/** Positioning */
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+
+		#clock {
+			padding: 10px;
+		}
+
+		#search-bar {
+			margin-bottom: 3vh;
+		}
+
+		#search-btn {
+			width: 40px;
+			height: 36px;
+			vertical-align: -7px;
+		}
+
+		#search-input {
+			padding: 5px;
+			height: 20px;
+			width: 30vw;
+		}
+
+		/** Coloring */
+		body {
+			background: var(--background);
+			color: var(--text);
+		}
+
+		a {
+			color: var(--link);
+		}
+
+		#search-btn {
+			background-color: var(--border);
+		}
+		#search-btn > i > svg {
+			stroke: var(--surface-zero);
+		}
+
+		#search-input {
+			background-color: var(--surface-zero);
+			color: var(--text);
+		}
+
+		#search-input,
+		#search-btn {
+			border-color: var(--border);
+		}
+	</style>
+</head>
+
+<body>
+	
+		<div id="clock"></div>
+
+		<script>
+			function showTime() {
+				let date = new Date();
+				let hour = date.getHours();
+				let minute = date.getMinutes();
+				let am;
+
+				
+					
+						am = true;
+
+						if (hour > 12) {
+							am = false;
+							hour = hour - 12;
+						}
+					
+				
+
+				if (hour < 10) {
+					hour = "0" + hour;
+				}
+				if (minute < 10) {
+					minute = "0" + minute;
+				}
+
+				if (am === undefined) {
+					am = "";
+				}
+				if (am === true) {
+					am = " AM";
+				}
+				if (am === false) {
+					am = " PM";
+				}
+
+				let time = hour + ":" + minute + am;
+
+				document.getElementById("clock").innerText = time;
+				document.getElementById("clock").textContent = time;
+
+				setTimeout(showTime, 1000);
+			}
+
+			showTime()
+		</script>
+	
+
+	
+
+	
+
+	
+		<footer>
+			<p><small>Made with <a href="https://github.com/ArkhamCookie/RustyPage">RustyPage</a>.</small></p>
+		</footer>
+	
+</body>
+
+</html>

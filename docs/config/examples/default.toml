@@ -1,0 +1,10 @@
+title = "RustyPage"
+
+[[bookmarks]]
+link = "https://github.com"
+name = "GitHub"
+shortcut = "g"
+
+[[bookmarks]]
+link = "https://arkhamcookie.com"
+name = "ArkhamCookie"
