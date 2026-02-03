@@ -124,6 +124,23 @@
 		<section id=bookmarks-section>
 			
 				<div class="bookmark" id="bookmark-0">
+					<a href="https://github.com">GitHub</a>
+				</div>
+
+				
+					<script>
+						function handleShortcut(event) {
+							if (event.key === "g" && document.activeElement.id !== "search-input") {
+								event.preventDefault();
+								window.open("https://github.com")
+							}
+						}
+
+						document.addEventListener("keydown", handleShortcut);
+					</script>
+				
+			
+				<div class="bookmark" id="bookmark-1">
 					<a href="https://arkhamcookie.com">ArkhamCookie</a>
 				</div>
 
