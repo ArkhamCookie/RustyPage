@@ -1,6 +1,6 @@
 # A config with only bookmarks
 
-[[bookmark]]
+[[bookmarks]]
 link = "https://github.com"
 name = "GitHub"
 shortcut = "g"
