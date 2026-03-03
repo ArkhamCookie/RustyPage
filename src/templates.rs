@@ -149,7 +149,7 @@ mod tests {
 
 		let homepage = Homepage::new(&config.expect("error getting config file"));
 
-		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+		let rendered = Homepage::render(&homepage).expect("error rendering homepage");
 
 		let mut wanted = File::open("./tests/data/bookmarks-only.html").expect("error getting test file");
 		let mut contents = String::new();
@@ -168,7 +168,7 @@ mod tests {
 
 		let homepage = Homepage::new(&config.expect("error getting config file"));
 
-		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+		let rendered = Homepage::render(&homepage).expect("error rendering homepage");
 
 		let mut wanted = File::open("./tests/data/clock-only.html").expect("error getting test file");
 		let mut contents = String::new();
@@ -187,7 +187,7 @@ mod tests {
 
 		let homepage = Homepage::new(&config.expect("error getting config file"));
 
-		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+		let rendered = Homepage::render(&homepage).expect("error rendering homepage");
 
 		let mut wanted = File::open("./tests/data/default.html").expect("error getting test file");
 		let mut contents = String::new();
@@ -206,7 +206,7 @@ mod tests {
 
 		let homepage = Homepage::new(&config.expect("error getting config file"));
 
-		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+		let rendered = Homepage::render(&homepage).expect("error rendering homepage");
 
 		let mut wanted = File::open("./tests/data/full.html").expect("error getting test file");
 		let mut contents = String::new();
@@ -225,7 +225,7 @@ mod tests {
 
 		let homepage = Homepage::new(&config.expect("error getting config file"));
 
-		let mut rendered = Homepage::render(&homepage).expect("error rendering homepage");
+		let rendered = Homepage::render(&homepage).expect("error rendering homepage");
 
 		let mut wanted = File::open("./tests/data/search-only.html").expect("error getting test file");
 		let mut contents = String::new();
