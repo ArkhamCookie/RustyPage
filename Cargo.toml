@@ -12,7 +12,7 @@ keywords = ["homepage", "startpage", "site"]
 exclude = [".github/"]
 
 [dependencies]
-askama = "0.15.6"
+askama = "0.16.0"
 clap = { version = "4.6.1", features = ["cargo", "derive"] }
 directories = "6.0.0"
 minify-html = { version = "0.18.1", optional = true }
@@ -20,7 +20,7 @@ serde = { version = "1.0.228", features = ["derive"] }
 toml = "1.1.2"
 
 [dev-dependencies]
-assert_cmd = "2.2.0"
+assert_cmd = "2.2.2"
 diff = "0.1.13"
 
 [[bin]]
